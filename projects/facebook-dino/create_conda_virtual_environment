@@ -1,0 +1,22 @@
+#!/bin/bash
+# create_conda_virtual_environment
+#   Draft: 2022-03-22 (Tue)
+#
+# To run this script,
+#   $ chmod +x create_conda_virtual_environment
+#   $ ./create_conda_virtual_environment
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+# Main
+# https://rwightman.github.io/pytorch-image-models/
+run "conda create -n torch-env"
+run "conda activate torch-env"
+#run "conda install pytorch torchvision cudatoolkit=11.1 -c pytorch -c conda-forge"
+run "conda install pytorch torchvision -c pytorch -c conda-forge"  # cuda is installed automatically
+run "conda install pyyaml"
