@@ -14,9 +14,21 @@ run() {
 }
 
 # Main
-# https://rwightman.github.io/pytorch-image-models/
-run "conda create -n torch-env"
+##  https://rwightman.github.io/pytorch-image-models/
+echo "Creating Conda Virtual Environment..."
+run "conda create -n torch-env -y"
 run "conda activate torch-env"
-#run "conda install pytorch torchvision cudatoolkit=11.1 -c pytorch -c conda-forge"
-run "conda install pytorch torchvision -c pytorch -c conda-forge"  # cuda is installed automatically
-run "conda install pyyaml"
+
+echo "Installing PyTorch..."
+echo "  To check the latest command, go to https://pytorch.org/get-started/locally/"
+#run "conda install -y pytorch torchvision cudatoolkit=11.1 -c pytorch -c conda-forge"
+run "conda install -y pytorch torchvision cudatoolkit=11.3 -c pytorch"
+
+## Additional package
+run "conda install -y pyyaml"
+
+echo "Verifying PyTorch installation by running sample codes..."
+run "python -c 'import torch; x = torch.rand(5, 3); print(x)'"
+run "python -c 'import torch; torch.cuda.is_available()'"
+
+# EOF
