@@ -35,7 +35,7 @@ run "python -c 'import torch; print(torch.__version__)'"
 run "git --version"
 
 # To run `python main_dino.py --help` without ModuleNotFoundError
-echo "Installing some prerequisites..."
+echo "Installing prerequisites..."
 
 # https://rwightman.github.io/pytorch-image-models/
 #run "pip install timm"  # installs timm 0.5.4
@@ -50,10 +50,11 @@ run "git clone https://github.com/facebookresearch/dino.git"
 echo "For details about the DINO code, refer to https://github.com/facebookresearch/dino"
 
 ## Dataset
-echo "Upload your Kaggle API credentials kaggle.json"
-echo "  $ chmod 600 kaggle.json"
-echo "  $ mkdir .kaggle"
-echo "  $ mv kaggle.json .kaggle/"
+echo "Upload your Kaggle API credentials kaggle.json manually"
+run "cd"
+run "chmod 600 kaggle.json"
+run "mkdir .kaggle"
+run "mv kaggle.json .kaggle/"
 echo "For details, refer to https://github.com/Kaggle/kaggle-api"
 
 download_imagenet_via_kaggle
