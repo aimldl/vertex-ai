@@ -1,0 +1,80 @@
+#!/bin/bash
+# prep_to_run_vit
+#   Draft: 2022-03-22 (Tue)
+#
+# To run this script,
+#   $ chmod +x prep_to_run_vit
+#   $ ./prep_to_run_vit
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+download_imagenet_via_kaggle() {
+  echo "Downloading the ImageNet dataset via Kaggle..."
+  run "kaggle competitions download -c imagenet-object-localization-challenge"
+
+  run "mkdir dataset"
+  run "mv imagenet-object-localization-challenge.zip dataset"
+  run "cd dataset"
+  run "ls"
+  echo "Unzipping the .zip file may take a long time. Please be patient."
+  run "unzip imagenet-object-localization-challenge.zip"
+}
+
+#
+echo “Checking the version information..."
+echo "  NVIDIA-SMI, NVIDIA Driver, CUDA”
+run "nvidia-smi"
+run "nvcc --version"  # CUDA Compiler Driver
+run "python -c 'import torch;print(torch.cuda.nccl.version())'"
+run "python -c 'import torch; print(torch.__version__)'"
+run "git --version"
+
+# To run `python main_dino.py --help` without ModuleNotFoundError
+echo "Installing some prerequisites..."
+
+# https://rwightman.github.io/pytorch-image-models/
+#run "pip install timm"  # installs timm 0.5.4
+run "pip install git+https://github.com/rwightman/pytorch-image-models.git"  # installs timm-0.6.1
+
+run "pip install kaggle"
+
+# For ViT
+## Source code
+echo “Cloning the Facebook DINO code...”
+run "git clone https://github.com/facebookresearch/dino.git"
+echo "For details about the DINO code, refer to https://github.com/facebookresearch/dino"
+
+## Dataset
+echo "Upload your Kaggle API credentials kaggle.json"
+echo "  $ chmod 600 kaggle.json"
+echo "  $ mkdir .kaggle"
+echo "  $ mv kaggle.json .kaggle/"
+echo "For details, refer to https://github.com/Kaggle/kaggle-api"
+
+download_imagenet_via_kaggle
+
+#while true; do
+#  read -p 'Are you ready? (y/n): ' REPLY
+#  echo $REPLY
+
+#  case $REPLY in
+#    [Yy]* ) download_imagenet_via_kaggle; break;;
+
+# Output directory
+run "cd"
+run "mkdir ~/output"
+
+echo "Verify the Dino code"
+run "tree ~/dino"
+run "tree ~/dataset"
+
+echo "Preparation to run ViT is done."
+echo "To train ViT, run a command like"
+echo "  $ python -m torch.distributed.launch --nproc_per_node=8 main_dino.py --arch vit_small --data_path ~/dataset --output_dir ~/output"
+
+# EOF
