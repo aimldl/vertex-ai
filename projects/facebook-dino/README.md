@@ -1,5 +1,5 @@
 # README
-First written: 2022-03-24 (Thu)
+* First written: 2022-03-24 (Thu)
 
 
 ```bash
