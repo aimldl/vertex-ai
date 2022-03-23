@@ -1,0 +1,26 @@
+#!/bin/bash
+# run_vit
+#   Draft: 2022-03-23 (Wed)
+
+# To run this script,
+#   $ chmod +x prep_to_run_vit
+#   $ ./prep_to_run_vit
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+# Variables
+DATASET=${HOME}/dataset
+OUTPUT=${HOME}/output
+echo "dataset=$DATASET"
+echo "output=$OUTPUT"
+
+# Main
+run "cd dino"
+run "python -m torch.distributed.launch --nproc_per_node=8 main_dino.py --arch vit_small --data_path $DATASET --output_dir $OUTPUT "
+
+# EOF
