@@ -1,0 +1,23 @@
+#!/bin/bash
+# run
+#   Draft: 2022-03-22 (Tue)
+#
+# To run this script,
+#   $ chmod +x run
+#   $ ./run
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+# Main
+run "chmod +x create_conda_virtual_environment"
+run "chmod +x prep_to_run_vit"
+run "chmod +x run_vit"
+
+run "./create_conda_virtual_environment"
+run "./prep_to_run_vit"
+run "./run_vit"
