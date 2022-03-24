@@ -2,6 +2,7 @@
 * First written: 2022-03-24 (Thu)
 
 Step 1. Upload your Kaggle API credentials `kaggle.json`.
+
 Click the upload button and select `kaggle.json`
 <img src='../images/vertex_ai-workbend-upload.png' width='30%'>
 
