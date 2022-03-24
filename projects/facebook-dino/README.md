@@ -1,7 +1,14 @@
 # README
 * First written: 2022-03-24 (Thu)
 
-Step 1. Upload your Kaggle API credentials `kaggle.json`.
+Step 1.
+```bash
+$ git clone https://github.com/aimldl/vertex-ai.git
+$ cp vertex-ai/projects/facebook-dino/* .
+rm README.md 
+```
+
+Step 2. Upload your Kaggle API credentials `kaggle.json`.
 
 Click the upload button and select `kaggle.json`
 
@@ -11,7 +18,7 @@ Click the upload button and select `kaggle.json`
 
 <img src='../images/vertex_ai-workbend-uploaded_kaggle_json.png' width='30%'>
 
-Step 2. Execute `run`.
+Step 3. Execute `run`.
 
 ```
 The prerequisite to execute run is to get kaggle.json in advance.
