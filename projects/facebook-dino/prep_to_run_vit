@@ -57,14 +57,11 @@ run "mkdir .kaggle"
 run "mv kaggle.json .kaggle/"
 echo "For details, refer to https://github.com/Kaggle/kaggle-api"
 
-download_imagenet_via_kaggle
-
-#while true; do
-#  read -p 'Are you ready? (y/n): ' REPLY
-#  echo $REPLY
-
-#  case $REPLY in
-#    [Yy]* ) download_imagenet_via_kaggle; break;;
+DIRECTORY='~/dataset'
+if [ ! -d "$DIRECTORY" ]; then
+    echo "$DIRECTORY does not exist"
+    download_imagenet_via_kaggle
+fi
 
 # Output directory
 run "cd"
