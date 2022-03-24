@@ -4,6 +4,7 @@
 Step 1. Upload your Kaggle API credentials `kaggle.json`.
 
 Click the upload button and select `kaggle.json`
+
 <img src='../images/vertex_ai-workbend-upload.png' width='30%'>
 
 `kaggle.json` is located in the user home directory.
