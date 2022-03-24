@@ -11,11 +11,13 @@ Click the upload button and select `kaggle.json`
 
 <img src='../images/vertex_ai-workbend-uploaded_kaggle_json.png' width='30%'>
 
-Step 2. Execute `run`
+Step 2. Execute `run`.
+
+```
 The prerequisite to execute `run` is to get `kaggle.json` in advance.
 `run` takes care of `kaggle.json` assuming it's located in the user home directory.
-
 `kaggle.json` is necessary because the ImageNet dataset is downloaded from Kaggle.
+```
 
 ```bash
 $ chmod +x run
