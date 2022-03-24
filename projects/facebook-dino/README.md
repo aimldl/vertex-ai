@@ -3,10 +3,10 @@
 
 Step 1. Upload your Kaggle API credentials `kaggle.json`.
 Click the upload button and select `kaggle.json`
-<img src='../images/vertex_ai-workbend-upload.png'>
-
+<img src='../images/vertex_ai-workbend-upload.png' style='max-width: 60%;'>
 `kaggle.json` is located in the user home directory.
-<img src='../images/vertex_ai-workbend-uploaded_kaggle_json.png'>
+
+<img src='../images/vertex_ai-workbend-uploaded_kaggle_json.png' style='max-width: 60%;'>
 
 Step 2. Execute `run`
 The prerequisite to execute `run` is to get `kaggle.json` in advance.
