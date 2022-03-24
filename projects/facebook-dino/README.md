@@ -1,11 +1,11 @@
 # README
 * First written: 2022-03-24 (Thu)
 
-Step 1.
+Step 1. Clone this repository and copy Bash scripts in this directory to the user home.
 ```bash
 $ git clone https://github.com/aimldl/vertex-ai.git
 $ cp vertex-ai/projects/facebook-dino/* .
-rm README.md 
+$ rm README.md 
 ```
 
 Step 2. Upload your Kaggle API credentials `kaggle.json`.
