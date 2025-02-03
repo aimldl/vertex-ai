@@ -7,10 +7,9 @@ For the published result, go to https://aimldl.github.io/vertex-ai/.
 
 ## Overview: the book building process
 There are three steps:
-- 1. Create the content (and structure it with folders, files, and configuration).
-- 2. Build the book (into either an HTML or a PDF file).
-- 3. Publish it online.
- 
+1. Create the content (and structure it with folders, files, and configuration).
+2. Build the book (into either an HTML or a PDF file).
+3. Publish it online.
 
 ## Update the content 
 At the local machine, update the content.
@@ -36,3 +35,7 @@ At the local machine, update the content.
 ```bash
 (jb) $ ghp-import -n -p -f _build/html/
 ```
+
+## References
+- [Happy Book Writing with Jupyter Book for a Programmer](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
+- [A Quick Start to Jupyter Book](https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt)
