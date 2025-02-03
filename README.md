@@ -13,10 +13,22 @@ There are three steps:
 
 ## Update the content 
 At the local machine, update the content.
+
+Launch Jupyter Lab.
 ```bash
 (base) $ conda activate jb
 (jb) $ cd ~/github/vertex-ai
+(jb) $ git pull
 (jb) $ jupyter lab
+```
+
+## Build the book
+Open another terminal.
+```bash
+(jb) $ jb clean . --all
+(jb) $ jb build .
+(jb) $ google-chrome _build/html/index.html 
+(jb) $ 
 ```
 
 ## Push the files to the remote repo
@@ -35,6 +47,9 @@ At the local machine, update the content.
 ```bash
 (jb) $ ghp-import -n -p -f _build/html/
 ```
+Check the published results at https://aimldl.github.io/vertex-ai/.
+
+
 
 ## References
 - [Happy Book Writing with Jupyter Book for a Programmer](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
