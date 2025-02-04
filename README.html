@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vertex-ai &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>A Practical Guide to Machine Learning with Google Cloud &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -175,13 +175,25 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="index.html">
-                    A Practical Guide to Machine Learning with Google Cloud
+                    Vertex AI
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_set-up.html">Environment Set-up</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1. Getting Started with Vertex AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2-0-set_up_environment.html">2. Set up the Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2-1-install_google_cloud_sdk.html">2.1. Install Google Cloud SDK</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3-0-getting_started.html">3. Getting Started with Vertex AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-1-create_a_new_project.html">3-1. Create a New Project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2. Simple Serving Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="4-test.html">4. Test</a></li>
 </ul>
 
     </div>
@@ -354,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -365,11 +379,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>vertex-ai</h1>
+    <h1>A Practical Guide to Machine Learning with Google Cloud</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-the-book-building-process">Overview: the book building process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-the-content">Update the content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-book">Build the book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-the-files-to-the-remote-repo">Push the files to the remote repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-publish-it">To publish it,</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -379,8 +406,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vertex-ai">
-<h1>vertex-ai<a class="headerlink" href="#vertex-ai" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-practical-guide-to-machine-learning-with-google-cloud">
+<h1>A Practical Guide to Machine Learning with Google Cloud<a class="headerlink" href="#a-practical-guide-to-machine-learning-with-google-cloud" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Created 2024-12-11 (Wed)</p></li>
+<li><p>Updated 2024-12-11 (Wed)</p></li>
+</ul>
+<p>This repository stores files for a Jupyter Book project.
+For the published result, go to <a class="reference external" href="https://aimldl.github.io/vertex-ai/">https://aimldl.github.io/vertex-ai/</a>.</p>
+<section id="overview-the-book-building-process">
+<h2>Overview: the book building process<a class="headerlink" href="#overview-the-book-building-process" title="Link to this heading">#</a></h2>
+<p>There are three steps:</p>
+<ol class="arabic simple">
+<li><p>Create the content (and structure it with folders, files, and configuration).</p></li>
+<li><p>Build the book (into either an HTML or a PDF file).</p></li>
+<li><p>Publish it online.</p></li>
+</ol>
+</section>
+<section id="update-the-content">
+<h2>Update the content<a class="headerlink" href="#update-the-content" title="Link to this heading">#</a></h2>
+<p>At the local machine, update the content.</p>
+<p>Launch Jupyter Lab.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>jb
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/github/vertex-ai
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>pull
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+<section id="build-the-book">
+<h2>Build the book<a class="headerlink" href="#build-the-book" title="Link to this heading">#</a></h2>
+<p>Open another terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>clean<span class="w"> </span>.<span class="w"> </span>--all
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>build<span class="w"> </span>.
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>google-chrome<span class="w"> </span>_build/html/index.html<span class="w"> </span>
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="push-the-files-to-the-remote-repo">
+<h2>Push the files to the remote repo<a class="headerlink" href="#push-the-files-to-the-remote-repo" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/github/vertex-ai
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>clean<span class="w"> </span>.<span class="w"> </span>--all
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>build<span class="w"> </span>.
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>./*
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update the content&quot;</span>
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>cat<span class="w"> </span>../token
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="to-publish-it">
+<h2>To publish it,<a class="headerlink" href="#to-publish-it" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html/
+</pre></div>
+</div>
+<p>Check the published results at <a class="reference external" href="https://aimldl.github.io/vertex-ai/">https://aimldl.github.io/vertex-ai/</a>.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0">Happy Book Writing with Jupyter Book for a Programmer</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt">A Quick Start to Jupyter Book</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,6 +508,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-the-book-building-process">Overview: the book building process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-the-content">Update the content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-book">Build the book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-the-files-to-the-remote-repo">Push the files to the remote repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-publish-it">To publish it,</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
