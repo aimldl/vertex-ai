@@ -6,13 +6,13 @@ root: index
 parts:
   - caption: Part 1. Getting Started with Vertex AI
     chapters:
-    - file: 1-introduction
-    - file: 2-0-set_up_environment
+    - file: part01/1-introduction(part01)
+    - file: part01/2_0-set_up_environment
       sections:
-      - file: 2-1-install_google_cloud_sdk
-    - file: 3-0-getting_started
+      - file: part01/2_1-install_google_cloud_sdk
+    - file: part01/3_0-getting_started
       sections:
-      - file: 3-1-create_a_new_project
+      - file: part01/3_1-create_a_new_project
   - caption: Part 2. Simple Serving Examples
     chapters:
-    - file: 4-test
+    - file: part02/1-introduction(part02)
