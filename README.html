@@ -393,8 +393,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-content">1. Updating Content</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Building the Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-remote-repository">Pushing Changes to the Remote Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-book">3. Publishing the Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-remote-repository">3. Pushing Changes to the Remote Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-book">4. Publishing the Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-official-documents">Jupyter Book Official Documents</a></li>
 </ul>
@@ -433,6 +433,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p><strong>Content Creation:</strong> Create the content and organize it using folders, files, and a configuration file.</p></li>
 <li><p><strong>Book Building:</strong> Generate the book in either HTML or PDF format.</p></li>
+<li><p><strong>“Git Push”:</strong> Push changes to the remote repository.</p></li>
 <li><p><strong>Publishing:</strong> Deploy the generated book online.</p></li>
 </ol>
 </section>
@@ -465,10 +466,13 @@ document.write(`
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>google-chrome<span class="w"> </span>_build/html/index.html
 </pre></div>
 </div>
-<p>or run</p>
+<p>Alternatively, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_clean_build.sh
+</pre></div>
+</div>
 </section>
 <section id="pushing-changes-to-the-remote-repository">
-<h2>Pushing Changes to the Remote Repository<a class="headerlink" href="#pushing-changes-to-the-remote-repository" title="Link to this heading">#</a></h2>
+<h2>3. Pushing Changes to the Remote Repository<a class="headerlink" href="#pushing-changes-to-the-remote-repository" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/github/vertex-ai
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>clean<span class="w"> </span>.<span class="w"> </span>--all
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>build<span class="w"> </span>.
@@ -483,10 +487,18 @@ document.write(`
 </pre></div>
 </div>
 <p>Consider a more secure way to handle tokens than <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">../token</span></code>. For example, use environment variables or a dedicated secrets management solution.</p>
+<p>Alternatively, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_git_push.sh
+</pre></div>
+</div>
 </section>
 <section id="publishing-the-book">
-<h2>3. Publishing the Book<a class="headerlink" href="#publishing-the-book" title="Link to this heading">#</a></h2>
+<h2>4. Publishing the Book<a class="headerlink" href="#publishing-the-book" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html/
+</pre></div>
+</div>
+<p>Or run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_publish.sh
 </pre></div>
 </div>
 <p>The published book will be available at <a class="reference external" href="https://aimldl.github.io/vertex-ai/">https://aimldl.github.io/vertex-ai/</a></p>
@@ -558,8 +570,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-content">1. Updating Content</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Building the Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-remote-repository">Pushing Changes to the Remote Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-book">3. Publishing the Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-remote-repository">3. Pushing Changes to the Remote Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-book">4. Publishing the Book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-official-documents">Jupyter Book Official Documents</a></li>
 </ul>
