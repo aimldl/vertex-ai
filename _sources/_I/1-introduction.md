@@ -1,6 +1,6 @@
 # 1. Introduction
 * Created: 2025-02-04 (Tue)
-* Updated: 2025-02-04 (Tue)
+* Updated: 2025-02-05 (Wed)
 
 ## Vertex AI: Classic ML + Generative AI
 Vertex AI is an end-to-end platform designed to streamline the building and deployment of machine learning models.  With the rise of generative AI, exemplified by OpenAI's ChatGPT, Google has integrated its own generative AI capabilities into Vertex AI.  Consequently, Vertex AI has evolved into a comprehensive platform supporting both traditional machine learning and generative AI.
@@ -22,13 +22,3 @@ This doc also includes:
 - the list of Vertex AI and Cloud ML products.
 
 The plethora of information provided by the doc is both blessing and curse. Undoubtedly, it is a useful resource serving as the single source of truth. Unfornately for a beginner, there are some hurdles to use Vertex AI even thought there are several "Getting started documents" for many sub-topics.
-
-## Useful Resource: Books
-There are several books in the topic of Vertex AI. 
-
-[TODO: Show the list of books]
-
-The synpsis of each book will be provided in Appendix. 
-
-[TODO: Buy them and read them all]
-[TODO: Provide a synopsis of each book]

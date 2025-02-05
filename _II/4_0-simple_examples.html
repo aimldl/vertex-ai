@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>4. Simple Examples &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -57,9 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'part02/2_0-simple_example';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_II/4_0-simple_examples';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3-1. Create a New Project" href="../_I/3_1-create_a_new_project.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,21 +178,21 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1. Getting Started with Vertex AI</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../part01/1-introduction%28part01%29.html">1. Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part01/2_0-set_up_environment.html">2. Set up the Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../part01/2_1-install_google_cloud_sdk.html">2.1. Install Google Cloud SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_I/1-introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../_I/2_0-set_up_environment.html">2. Set up the Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_I/2_1-install_google_cloud_sdk.html">2.1. Install Google Cloud SDK</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part01/3_0-getting_started.html">3. Getting Started with Vertex AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../part01/3_1-create_a_new_project.html">3-1. Create a New Project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../_I/3_0-getting_started_with_vertex-ai.html">3. Getting Started with Vertex AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_I/3_1-create_a_new_project.html">3-1. Create a New Project</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2. Simple Serving Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1-introduction%28part02%29.html">4. Test</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Simple Examples</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Simple Examples</a></li>
 </ul>
 
     </div>
@@ -265,7 +264,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2Fpart02/2_0-simple_example.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_II/4_0-simple_examples.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +294,7 @@
       
       
       
-      <li><a href="../_sources/part02/2_0-simple_example.md" target="_blank"
+      <li><a href="../_sources/_II/4_0-simple_examples.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,9 +365,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -379,19 +376,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>4. Simple Examples</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -401,7 +390,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-examples">
+<h1>4. Simple Examples<a class="headerlink" href="#simple-examples" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Created: 2025-02-04 (Tue)</p></li>
+<li><p>Updated: 2025-02-04 (Tue)</p></li>
+</ul>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -415,7 +411,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./part02"
+            path: "./_II"
         },
         predefinedOutput: true
     }
@@ -432,27 +428,21 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../_I/3_1-create_a_new_project.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3-1. Create a New Project</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
