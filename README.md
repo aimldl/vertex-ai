@@ -1,20 +1,24 @@
 # A Practical Guide to Machine Learning with Google Cloud
-- Created 2024-12-11 (Wed)
-- Updated 2024-12-11 (Wed)
 
-This repository stores files for a Jupyter Book project. 
-For the published result, go to https://aimldl.github.io/vertex-ai/.
+- Created: 2024-12-11 (Wed)
+- Updated: 2025-02-05 (Wed)
 
-## Overview: the book building process
-There are three steps:
-1. Create the content (and structure it with folders, files, and configuration).
-2. Build the book (into either an HTML or a PDF file).
-3. Publish it online.
+This repository contains the files for a Jupyter Book project. The published book can be viewed at: [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
 
-## Update the content 
-At the local machine, update the content.
+## Building the Book
 
-Launch Jupyter Lab.
+The book building process involves three steps:
+
+1. **Content Creation:** Create the content and organize it using folders, files, and a configuration file.
+2. **Book Building:** Generate the book in either HTML or PDF format.
+3. **Publishing:** Deploy the generated book online.
+
+## Updating Content
+
+To update the book's content locally:
+
+1. Launch JupyterLab:
+
 ```bash
 (base) $ conda activate jb
 (jb) $ cd ~/github/vertex-ai
@@ -22,33 +26,45 @@ Launch Jupyter Lab.
 (jb) $ jupyter lab
 ```
 
-## Build the book
-Open another terminal.
+## Building the Book
+Open a separate terminal and execute the following commands:
 ```bash
 (jb) $ jb clean . --all
 (jb) $ jb build .
-(jb) $ google-chrome _build/html/index.html 
-(jb) $ 
+
+# Optional: View the built book locally
+(jb) $ google-chrome _build/html/index.html
 ```
 
-## Push the files to the remote repo
- 
+## Pushing Changes to the Remote Repository
+* Prerequisite: You have already configured the remote repository.
+
 ```bash
 (jb) $ cd ~/github/vertex-ai
 (jb) $ jb clean . --all
 (jb) $ jb build .
 (jb) $ git add ./*
 (jb) $ git commit -m "Update the content"
+
+# See below for a secure way to handle tokens.
 (jb) $ cat ../token
 (jb) $ git push
 ```
-## To publish it,
+
+Consider a more secure way to handle tokens than `cat ../token`
+For example, use environment variables or a dedicated secrets management solution.
+Example using an environment variable:
+```bash
+# TOKEN=<span class="math-inline">\(cat \.\./token\)  \# Set the environment variable
+\# git push "https\://</span>{TOKEN}@[github.com/YOUR_USERNAME/YOUR_REPO.git](https://www.google.com/search?q=https://github.com/YOUR_USERNAME/YOUR_REPO.git)"
+```
+
+## Publishing the Book
 
 ```bash
 (jb) $ ghp-import -n -p -f _build/html/
 ```
-Check the published results at https://aimldl.github.io/vertex-ai/.
-
+The published book will be available at https://aimldl.github.io/vertex-ai/
 
 
 ## References
