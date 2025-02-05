@@ -3,7 +3,7 @@
 - Created: 2024-12-11 (Wed)
 - Updated: 2025-02-05 (Wed)
 
-This repository contains the files for a Jupyter Book project. The published book can be viewed at: [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
+This repository contains the files for a Jupyter Book project. The published book can be viewed at [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
 
 ## Building the Book
 
