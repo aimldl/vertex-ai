@@ -14,15 +14,14 @@ The book building process involves three steps:
 3. **Publishing:** Deploy the generated book online.
 
 ## Updating Content
-
-To update the book's content locally:
-
-1. Launch JupyterLab:
+Open a terminal to update the book's content locally.
 
 ```bash
 (base) $ conda activate jb
 (jb) $ cd ~/github/vertex-ai
 (jb) $ git pull
+
+# Launch JupyterLab
 (jb) $ jupyter lab
 ```
 
