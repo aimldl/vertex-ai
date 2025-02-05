@@ -4,15 +4,15 @@
 format: jb-book
 root: index
 parts:
-  - caption: Part 1. Getting Started with Vertex AI
+  - caption: I. Getting Started
     chapters:
-    - file: part01/1-introduction(part01)
-    - file: part01/2_0-set_up_environment
+    - file: _I/1-introduction
+    - file: _I/2_0-set_up_environment
       sections:
-      - file: part01/2_1-install_google_cloud_sdk
-    - file: part01/3_0-getting_started
+      - file: _I/2_1-install_google_cloud_sdk
+    - file: _I/3_0-getting_started_with_vertex-ai
       sections:
-      - file: part01/3_1-create_a_new_project
-  - caption: Part 2. Simple Serving Examples
+      - file: _I/3_1-create_a_new_project
+  - caption: II. Simple Examples
     chapters:
-    - file: part02/1-introduction(part02)
+    - file: _II/4_0-simple_examples

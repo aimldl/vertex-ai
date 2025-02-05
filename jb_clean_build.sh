@@ -1,10 +1,11 @@
 #!/bin/bash
 #  jb_clean_build.sh
 #    * Created: 2025-02-04 (Tue)
-#    * Updated: 2025-02-04 (Tue)
+#    * Updated: 2025-02-05 (Wed)
 
 DIR_SOURCE="_build/html"
-FILE_TOKEN="../token"
+FILE_TOKEN="../token"  # Consider a more secure way to handle tokens than `cat ../token`. 
+# For example, use environment variables or a dedicated secrets management solution.
 WEB_BROWSER="google-chrome"  # firefox or google-chrome
 
 ## Function Definitions
@@ -44,6 +45,8 @@ launch_web_browser() {
 }
 
 # Commands
+#   Assume the Conda environment is (jb), not (base)
+#   If not, run "conda activate jb"
 run "jb clean . --all"
 run "jb build ."
 launch_web_browser
