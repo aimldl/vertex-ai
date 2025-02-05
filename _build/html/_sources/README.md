@@ -19,7 +19,8 @@ The book building process involves three steps:
 
 1. **Content Creation:** Create the content and organize it using folders, files, and a configuration file.
 2. **Book Building:** Generate the book in either HTML or PDF format.
-3. **Publishing:** Deploy the generated book online.
+3. **"Git Push":** Push changes to the remote repository.
+4. **Publishing:** Deploy the generated book online.
 
 ## 1. Updating Content
 Open a terminal to update the book's content locally.
@@ -50,9 +51,13 @@ Execute the following commands:
 # Optional: View the built book locally
 (jb) $ google-chrome _build/html/index.html
 ```
-or run 
 
-## Pushing Changes to the Remote Repository
+Alternatively, run:
+```bash
+(jb) $ ./jb_clean_build.sh
+```
+
+## 3. Pushing Changes to the Remote Repository
 ```bash
 (jb) $ cd ~/github/vertex-ai
 (jb) $ jb clean . --all
@@ -68,11 +73,21 @@ or run
 ```
 Consider a more secure way to handle tokens than `cat ../token`. For example, use environment variables or a dedicated secrets management solution.
 
-## 3. Publishing the Book
+Alternatively, run:
+```bash
+(jb) $ ./jb_git_push.sh
+```
+
+## 4. Publishing the Book
 
 ```bash
 (jb) $ ghp-import -n -p -f _build/html/
 ```
+Or run:
+```bash
+(jb) $ ./jb_publish.sh
+```
+
 The published book will be available at https://aimldl.github.io/vertex-ai/
 
 ## References
