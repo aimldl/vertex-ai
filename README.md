@@ -5,6 +5,15 @@
 
 This repository contains the files for a Jupyter Book project. The published book can be viewed at [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
 
+## Setting up this Jupyter Book project
+Details on setting up this Jupyter Book project are available in these guides:
+- [A Quick Start to Jupyter Book](https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt)
+- [Happy Book Writing with Jupyter Book for a Programmer](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
+
+<img src="img/jupyter_book-entire_process.png">
+
+The following instructions assume the project is already configured.
+
 ## Building the Book
 
 The book building process involves three steps:
@@ -36,12 +45,12 @@ Open a separate terminal and execute the following commands:
 ```
 
 ## Pushing Changes to the Remote Repository
-* Prerequisite: You have already configured the remote repository.
-
 ```bash
 (jb) $ cd ~/github/vertex-ai
 (jb) $ jb clean . --all
 (jb) $ jb build .
+
+# Prerequisite: The remote repository has already been configured.
 (jb) $ git add ./*
 (jb) $ git commit -m "Update the content"
 
@@ -49,14 +58,7 @@ Open a separate terminal and execute the following commands:
 (jb) $ cat ../token
 (jb) $ git push
 ```
-
-Consider a more secure way to handle tokens than `cat ../token`
-For example, use environment variables or a dedicated secrets management solution.
-Example using an environment variable:
-```bash
-# TOKEN=<span class="math-inline">\(cat \.\./token\)  \# Set the environment variable
-\# git push "https\://</span>{TOKEN}@[github.com/YOUR_USERNAME/YOUR_REPO.git](https://www.google.com/search?q=https://github.com/YOUR_USERNAME/YOUR_REPO.git)"
-```
+Consider a more secure way to handle tokens than `cat ../token`. For example, use environment variables or a dedicated secrets management solution.
 
 ## Publishing the Book
 
@@ -64,8 +66,3 @@ Example using an environment variable:
 (jb) $ ghp-import -n -p -f _build/html/
 ```
 The published book will be available at https://aimldl.github.io/vertex-ai/
-
-
-## References
-- [Happy Book Writing with Jupyter Book for a Programmer](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
-- [A Quick Start to Jupyter Book](https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt)
