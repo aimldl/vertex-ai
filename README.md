@@ -32,6 +32,8 @@ Open a terminal to update the book's content locally.
 
 # Launch JupyterLab
 (jb) $ jupyter lab
+# or
+(jb) $ jl
 ```
 
 Modify files and directories using JupyterLab.
