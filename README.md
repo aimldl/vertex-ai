@@ -1,13 +1,13 @@
-# A Practical Guide to Machine Learning with Google Cloud
+# A Practical Guide to Machine Learning with Google Cloud (WIP)
 * Created: 2024-12-11 (Wed)
-* Updated: 2025-02-05 (Wed)
+* Updated: 2025-02-07 (Fri)
 
 This repository contains the files for a Jupyter Book project. The published book can be viewed at [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
 
 ## Setting up this Jupyter Book project
 Details on setting up this Jupyter Book project are available in these guides:
-- [A Quick Start to Jupyter Book](https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt)
-- [Happy Book Writing with Jupyter Book for a Programmer](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
+- [A Quick Start to Jupyter Book (WIP)](https://docs.google.com/document/d/1PXdBtuoIniWVbuAqwCFzM44fuYRyVbnd84CvRVcIA3M/edit?tab=t.0#heading=h.nghxr9spi7kt)
+- [Happy Book Writing with Jupyter Book for a Programmer (WIP)](https://docs.google.com/document/d/1XQWcRHX990Od6lShArrVzlKUOTdtHs3uFVqvJEp8rqM/edit?tab=t.0)
 
 <img src="img/jupyter_book-entire_process.png">
 
