@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TODO &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>2-1. Conda Environment: Create and Activate &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -18,48 +18,50 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TODO';</script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '_I/2_1-conda_environment';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. Install Google Cloud SDK" href="2_2-install_google_cloud_sdk.html" />
+    <link rel="prev" title="2. Set up the Environment" href="2_0-set_up_environment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -91,7 +93,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -142,7 +142,7 @@
     
   
 
-<a class="navbar-brand logo" href="index.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="A Practical Guide to Machine Learning with Google Cloud - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A Practical Guide to Machine Learning with Google Cloud - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Practical Guide to Machine Learning with Google Cloud - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Practical Guide to Machine Learning with Google Cloud - Home"/>`);</script>
   
   
 </a></div>
@@ -174,29 +174,29 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="index.html">
+                <a class="reference internal" href="../index.html">
                     Vertex AI
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Environment Set-up</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="_I/1-introduction.html">1. Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="_I/2_0-set_up_environment.html">2. Set up the Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="_I/2_1-conda_environment.html">2-1. Conda Environment: Create and Activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_I/2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_I/2_3-create_a_new_project.html">2-3. Create a New Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_I/2_4-set_the_billing_account_for_project.html">2-4. Set the Billing Account for Project</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2_0-set_up_environment.html">2. Set up the Environment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2-1. Conda Environment: Create and Activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3-create_a_new_project.html">2-3. Create a New Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4-set_the_billing_account_for_project.html">2-4. Set the Billing Account for Project</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Getting Started with Vertex AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="_II/3_0-getting_started_with_vertex-ai.html">3. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_II/3_0-getting_started_with_vertex-ai.html">3. Getting Started with Vertex AI</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="_III/4_0-simple_examples.html">4. Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-simple_examples.html">4. Simple Examples</a></li>
 </ul>
 
     </div>
@@ -268,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2FTODO.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_I/2_1-conda_environment.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="_sources/TODO.md" target="_blank"
+      <li><a href="../_sources/_I/2_1-conda_environment.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>TODO</h1>
+    <h1>2-1. Conda Environment: Create and Activate</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,7 +392,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource-books">Useful Resource: Books</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">Create a New Conda Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-new-conda-environment">Activate the New Conda Environment</a></li>
 </ul>
             </nav>
         </div>
@@ -404,19 +405,60 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="todo">
-<h1>TODO<a class="headerlink" href="#todo" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="conda-environment-create-and-activate">
+<h1>2-1. Conda Environment: Create and Activate<a class="headerlink" href="#conda-environment-create-and-activate" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Created: 2025-02-05 (Wed)</p></li>
+<li><p>Created: 2025-02-04 (Tue)</p></li>
 <li><p>Updated: 2025-02-05 (Wed)</p></li>
 </ul>
-<section id="useful-resource-books">
-<h2>Useful Resource: Books<a class="headerlink" href="#useful-resource-books" title="Link to this heading">#</a></h2>
-<p>There are several books in the topic of Vertex AI.</p>
-<p>[TODO: Show the list of books]</p>
-<p>The synpsis of each book will be provided in Appendix.</p>
-<p>[TODO: Buy them and read them all]
-[TODO: Provide a synopsis of each book]</p>
+<section id="create-a-new-conda-environment">
+<h2>Create a New Conda Environment<a class="headerlink" href="#create-a-new-conda-environment" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>vertex
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Retrieving<span class="w"> </span>notices:<span class="w"> </span><span class="k">done</span>
+Channels:
+<span class="w"> </span>-<span class="w"> </span>conda-forge
+<span class="w"> </span>-<span class="w"> </span>defaults
+Platform:<span class="w"> </span>linux-64
+Collecting<span class="w"> </span>package<span class="w"> </span>metadata<span class="w"> </span><span class="o">(</span>repodata.json<span class="o">)</span>:<span class="w"> </span><span class="k">done</span>
+Solving<span class="w"> </span>environment:<span class="w"> </span><span class="k">done</span>
+
+<span class="c1">## Package Plan ##</span>
+
+<span class="w">  </span>environment<span class="w"> </span>location:<span class="w"> </span>/home/thekim/anaconda3/envs/vertex
+
+Proceed<span class="w"> </span><span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>?
+</pre></div>
+</div>
+<p>Enter <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Proceed<span class="w"> </span><span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>?<span class="w"> </span>y
+
+
+Downloading<span class="w"> </span>and<span class="w"> </span>Extracting<span class="w"> </span>Packages:
+
+Preparing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Verifying<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Executing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+<span class="c1">#</span>
+<span class="c1"># To activate this environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda activate vertex</span>
+<span class="c1">#</span>
+<span class="c1"># To deactivate an active environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda deactivate</span>
+
+<span class="o">(</span>base<span class="o">)</span><span class="w"> </span>$
+</pre></div>
+</div>
+</section>
+<section id="activate-the-new-conda-environment">
+<h2>Activate the New Conda Environment<a class="headerlink" href="#activate-the-new-conda-environment" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>vertex
+<span class="o">(</span>vertex<span class="o">)</span><span class="w"> </span>$
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -433,7 +475,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./_I"
         },
         predefinedOutput: true
     }
@@ -450,6 +492,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2_0-set_up_environment.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. Set up the Environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_2-install_google_cloud_sdk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2. Install Google Cloud SDK</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -466,7 +526,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource-books">Useful Resource: Books</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">Create a New Conda Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-new-conda-environment">Activate the New Conda Environment</a></li>
 </ul>
   </nav></div>
 
@@ -515,8 +576,8 @@ By Tae-Hyung Kim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
