@@ -44,7 +44,7 @@ Open a separate terminal. Note the prompt starts in the same directory as your p
 # Example prompt
 # (base) your_account:~/github/vertex-ai$ 
 ```
-Run:
+Run
 ```bash
 (jb) $ ./jb_clean_build.sh
 ```
@@ -58,7 +58,7 @@ or execute the following commands one by one:
 (jb) $ google-chrome _build/html/index.html
 ```
 ## 3. Pushing Changes to the Remote Repository
-Run:
+Run
 ```bash
 (jb) $ ./jb_git_push.sh
 ```
