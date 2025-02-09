@@ -4,15 +4,21 @@
 format: jb-book
 root: index
 parts:
-  - caption: I. Getting Started
+  - caption: I. Environment Set-up
     chapters:
     - file: _I/1-introduction
     - file: _I/2_0-set_up_environment
       sections:
-      - file: _I/2_1-install_google_cloud_sdk
-    - file: _I/3_0-getting_started_with_vertex-ai
-      sections:
-      - file: _I/3_1-create_a_new_project
-  - caption: II. Simple Examples
+      - file: _I/2_1-conda_environment
+      - file: _I/2_2-install_google_cloud_sdk
+      - file: _I/2_3-start_using_the_google_cloud_sdk
+      - file: _I/2_4-update_google_cloud_sdk
+      - file: _I/2_5-initialize_gcloud
+      - file: _I/2_6-create_a_new_project
+      - file: _I/2_7-set_the_billing_account_for_project
+  - caption: II. Getting Started with Vertex AI
     chapters:
-    - file: _II/4_0-simple_examples
+    - file: _II/3_0-getting_started_with_vertex-ai
+  - caption: III. Simple Examples
+    chapters:
+    - file: _III/4_0-simple_examples
