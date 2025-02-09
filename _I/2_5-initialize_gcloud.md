@@ -2,8 +2,7 @@
 * Created: 2025-02-04 (Tue)
 * Updated: 2025-02-09 (Sun)
 
-## `gcloud init`
-Run 
+## `gcloud init` 
 ```bash
 $ gcloud init
 ```
