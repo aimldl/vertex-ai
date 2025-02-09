@@ -1,132 +1,109 @@
 # 2.2. Install Google Cloud SDK
 * Created: 2025-02-04 (Tue)
-* Updated: 2025-02-05 (Wed)
+* Updated: 2025-02-09 (Sun)
 
-## GUI + CLI
-Vertex AI supports both GUI (Graphic User Interface) and CLI (Command Line Interface).
+## Introducing Google Cloud SDK (Software Development Kit)
+Google Cloud SDK is the overall suite of development tools, including the gcloud CLI. You can use the gcloud CLI to manage various Google Cloud resources and services directly from your terminal.
 
-### GUI: (Google) Cloud Console
-The Cloud Console is the GUI for the entire Google Cloud Platform and Vertex AI is a part of Google Cloud Platform.
+```
+Q: What are the supported GUI and CLI for Google Cloud?
+A: Vertex AI supports both GUI (Graphic User Interface) and CLI (Command Line Interface).
 
-### CLI on the GUI: Cloud Shell
-Cloud Shell is available automatically on Cloud Console. Installation and initialization are not necessary.
+   GUI = (Google) Cloud Console
+   * The Cloud Console is the GUI for the entire Google Cloud Platform.
+   * Vertex AI is a part of Google Cloud Platform.
+   * Therefore, Cloud Console is the GUI supported also for Vertex AI.
 
-### CLI: Google Cloud SDK
-[Download and install the gcloud CLI](https://cloud.google.com/sdk/docs/install) in the local terminal and initialize it.
+   CLI = Cloud Shell
+   * Cloud Shell is available automatically on Cloud Console.
+   * Google Cloud SDK comes preinstalled within Cloud Shell.
+   * Therefore, Cloud Shell can be said it's the CLI for the GUI (Cloud Console).
 
-Google Cloud SDK (Software Development Kit) is the overall suite of development tools, including the gcloud CLI. You can use the gcloud CLI to manage various Google Cloud resources and services directly from your terminal.
-
-For details, refer to [Google Cloud Command Line Interface (gcloud CLI)](https://cloud.google.com/cli?hl=en#:~:text=Pricing-,Pricing,with%20a%20Google%20Cloud%20account.&text=). And see [gcloud CLI overview](https://cloud.google.com/sdk/gcloud#:~:text=You%20can%20also%20use%20the,configuration%2C%20and%20perform%20other%20tasks.)
-
-## Double-check if the `gcloud` command is ready to use
-
-### Check the installed version
-
+   CLI = Google Cloud SDK
+   * This SDK can be installed on local machines.
+   * After the installation, it should be initialized to provide the basic information such as the target project ID.
+   * Otherwise, there is no way that the SDK knows what project the user is targeting to connect.
+   * Note: The Cloud Shell launched within Cloud Console (GUI) knows the project because it's launched in the Project ID.
+``` 
+## Double-check if the `gcloud` command has already been installed.
+Open the local terminal and run any command with the gcloud command. For example,
 ```bash
+# Check the installed version
 $ gcloud version
 ```
-
+An error will occur if the SDK is not installed.
 ```bash
-Google Cloud SDK 498.0.0
-alpha 2024.10.18
-beta 2024.10.18
-bq 2.1.9
-bundled-python3-unix 3.11.9
-core 2024.10.18
-gcloud-crc32c 1.0.0
-gsutil 5.31
+Command gcloud not found
 $
 ```
 
-In the local terminal, run:
-```bash
-$ gcloud components update
-  ...
-Do you want to opt-in (y/N)? y
-```
-After the update, make sure the version numbers are updated.
-```bash
-$ gcloud version
-```
-
+If it's installed, the output should look like:
 ```bash
 Google Cloud SDK 509.0.0
-alpha 2025.01.31
-beta 2025.01.31
 bq 2.1.12
 bundled-python3-unix 3.12.8
 core 2025.01.31
 gcloud-crc32c 1.0.0
 gsutil 5.33
+$ 
+```
+
+## Download and install Google Cloud SDK
+If the Google Cloud SDK is not installed, follow the instructions in [Download and install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
+
+```bash
+# Download
+$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+$ tar -xf google-cloud-cli-linux-x86_64.tar.gz
+
+# Install
+$ ./google-cloud-sdk/install.sh
+```
+
+The full output message should look like: 
+```bash
+$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  141M  100  141M    0     0  37.7M      0  0:00:03  0:00:03 --:--:-- 37.7M
+$ tar -xf google-cloud-cli-linux-x86_64.tar.gz
+$ ./google-cloud-sdk/install.sh
+Welcome to the Google Cloud CLI!
+
+To help improve the quality of this product, we collect anonymized usage data
+and anonymized stacktraces when crashes are encountered; additional information
+is available at <https://cloud.google.com/sdk/usage-statistics>. This data is
+handled in accordance with our privacy policy
+<https://cloud.google.com/terms/cloud-privacy-notice>. You may choose to opt in this
+collection now (by choosing 'Y' at the below prompt), or at any time in the
+future by running the following command:
+
+    gcloud config set disable_usage_reporting false
+
+Do you want to help improve the Google Cloud CLI (y/N)?  y
+  ...
+Modify profile to update your $PATH and enable shell command completion?
+
+Do you want to continue (Y/n)? y
+
+Enter a path to an rc file to update, or leave blank to use [/home/thekim/.bashrc]:  
+Backing up [/home/thekim/.bashrc] to [/home/thekim/.bashrc.backup].
+[/home/thekim/.bashrc] has been updated.
+
+==> Start a new shell for the changes to take effect.
+
+For more information on how to get started, please visit:
+  https://cloud.google.com/sdk/docs/quickstarts
+
 $
 ```
-
-### Initialize `gcloud`
-
-Run 
+The Bash shell should be restarted to make it visible. Re-open the terminal or run
 ```bash
-$ gcloud init
+$ bash
 ```
+to relaunch the Bash shell.
 
+To double-check, run any `gcloud` command. For example,
 ```bash
-Welcome! This command will take you through the configuration of gcloud.
-
-  ...
-
-Pick configuration to use:
- [1] Create a new configuration
- [2] Switch to and re-initialize existing configuration: [default]
-Please enter your numeric choice:  
-```
-
-```bash
-Please enter your numeric choice:  1
-
-Enter configuration name. Names start with a lower case letter and contain only lower case letters a-z, digits 0-9, and hyphens '-':  vertex
-Your current configuration has been set to: [vertex]
-   ...
-
-   Select an account:
- [1] admin@my.id.com
- [2] Sign in with a new Google Account
- [3] Skip this step
-Please enter your numeric choice: 1
-```
-
-```bash
-Enter a Project ID. Note that a Project ID CANNOT be changed later.
-Project IDs must be 6-30 characters (lowercase ASCII, digits, or
-hyphens) in length and start with a lowercase letter.
-```
-
-I chose the project ID to be "vertex". This project is about Vertex AI, but a name like "vertex-ai" will be confusing with `~/github/vertex-ai` and other stuff.
-
-```bash
-WARNING: Project creation failed: HttpError accessing 
-  ...
-"error": {
-    "code": 409,
-    "message": "Requested entity already exists",
-    "status": "ALREADY_EXISTS"
-  }
-}
->
-Please make sure to create the project [vertex] using
-    $ gcloud projects create vertex
-or change to another project using
-    $ gcloud config set project <PROJECT ID>
-The Google Cloud CLI is configured and ready to use!
-
-* Commands that require authentication will use admin@thekim.altostrat.com by default
-Run `gcloud help config` to learn how to change individual settings
-
-This gcloud configuration is called [vertex]. You can create additional configurations if you work with multiple accounts and/or projects.
-Run `gcloud topic configurations` to learn more.
-
-Some things to try next:
-
-* Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
-* Run `gcloud topic --help` to learn about advanced features of the CLI like arg files and output formatting
-* Run `gcloud cheat-sheet` to see a roster of go-to `gcloud` commands.
-$
+$ gcloud version
 ```

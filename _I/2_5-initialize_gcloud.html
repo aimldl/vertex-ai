@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2-3. Create a New Project &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>2_5. Initialize gcloud &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_I/2_3-create_a_new_project';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_I/2_5-initialize_gcloud';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2-4. Set the Billing Account for Project" href="2_4-set_the_billing_account_for_project.html" />
-    <link rel="prev" title="2.2. Install Google Cloud SDK" href="2_2-install_google_cloud_sdk.html" />
+    <link rel="next" title="2-6. Create a New Project" href="2_6-create_a_new_project.html" />
+    <link rel="prev" title="2-4. Update Google Cloud SDK" href="2_4-update_google_cloud_sdk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,11 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="2_0-set_up_environment.html">2. Set up the Environment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="2_1-conda_environment.html">2-1. Conda Environment: Create and Activate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2-3. Create a New Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_4-set_the_billing_account_for_project.html">2-4. Set the Billing Account for Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3-start_using_the_google_cloud_sdk.html">2-3. Start using the Google Cloud SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4-update_google_cloud_sdk.html">2-4. Update Google Cloud SDK</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2_5. Initialize <code class="docutils literal notranslate"><span class="pre">gcloud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_6-create_a_new_project.html">2-6. Create a New Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_7-set_the_billing_account_for_project.html">2-7. Set the Billing Account for Project</a></li>
 </ul>
 </details></li>
 </ul>
@@ -268,7 +271,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_I/2_3-create_a_new_project.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_I/2_5-initialize_gcloud.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +301,7 @@
       
       
       
-      <li><a href="../_sources/_I/2_3-create_a_new_project.md" target="_blank"
+      <li><a href="../_sources/_I/2_5-initialize_gcloud.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +372,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -380,11 +385,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2-3. Create a New Project</h1>
+    <h1>2_5. Initialize gcloud</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-init"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">init</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-output">Example output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertex-failed"><code class="docutils literal notranslate"><span class="pre">vertex</span></code> failed</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -394,13 +409,83 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="create-a-new-project">
-<h1>2-3. Create a New Project<a class="headerlink" href="#create-a-new-project" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="initialize-gcloud">
+<h1>2_5. Initialize <code class="docutils literal notranslate"><span class="pre">gcloud</span></code><a class="headerlink" href="#initialize-gcloud" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Created: 2025-02-04 (Tue)</p></li>
-<li><p>Updated: 2025-02-04 (Tue)</p></li>
+<li><p>Updated: 2025-02-09 (Sun)</p></li>
 </ul>
-<p>Use the Cloud Console to create a new project.</p>
+<section id="gcloud-init">
+<h2><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">init</span></code><a class="headerlink" href="#gcloud-init" title="Link to this heading">#</a></h2>
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcloud<span class="w"> </span>init
+</pre></div>
+</div>
+</section>
+<section id="example-output">
+<h2>Example output<a class="headerlink" href="#example-output" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Welcome!<span class="w"> </span>This<span class="w"> </span><span class="nb">command</span><span class="w"> </span>will<span class="w"> </span>take<span class="w"> </span>you<span class="w"> </span>through<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>of<span class="w"> </span>gcloud.
+
+<span class="w">  </span>...
+
+Pick<span class="w"> </span>configuration<span class="w"> </span>to<span class="w"> </span>use:
+<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>configuration
+<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Switch<span class="w"> </span>to<span class="w"> </span>and<span class="w"> </span>re-initialize<span class="w"> </span>existing<span class="w"> </span>configuration:<span class="w"> </span><span class="o">[</span>default<span class="o">]</span>
+Please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>numeric<span class="w"> </span>choice:<span class="w">  </span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>numeric<span class="w"> </span>choice:<span class="w">  </span><span class="m">1</span>
+
+Enter<span class="w"> </span>configuration<span class="w"> </span>name.<span class="w"> </span>Names<span class="w"> </span>start<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>lower<span class="w"> </span><span class="k">case</span><span class="w"> </span>letter<span class="w"> </span>and<span class="w"> </span>contain<span class="w"> </span>only<span class="w"> </span>lower<span class="w"> </span><span class="k">case</span><span class="w"> </span>letters<span class="w"> </span>a-z,<span class="w"> </span>digits<span class="w"> </span><span class="m">0</span>-9,<span class="w"> </span>and<span class="w"> </span>hyphens<span class="w"> </span><span class="s1">&#39;-&#39;</span>:<span class="w">  </span>vertex
+Your<span class="w"> </span>current<span class="w"> </span>configuration<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to:<span class="w"> </span><span class="o">[</span>vertex<span class="o">]</span>
+<span class="w">   </span>...
+
+<span class="w">   </span>Select<span class="w"> </span>an<span class="w"> </span>account:
+<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>admin@my.id.com
+<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Sign<span class="w"> </span><span class="k">in</span><span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>Google<span class="w"> </span>Account
+<span class="w"> </span><span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span>Skip<span class="w"> </span>this<span class="w"> </span>step
+Please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>numeric<span class="w"> </span>choice:<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="vertex-failed">
+<h2><code class="docutils literal notranslate"><span class="pre">vertex</span></code> failed<a class="headerlink" href="#vertex-failed" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter<span class="w"> </span>a<span class="w"> </span>Project<span class="w"> </span>ID.<span class="w"> </span>Note<span class="w"> </span>that<span class="w"> </span>a<span class="w"> </span>Project<span class="w"> </span>ID<span class="w"> </span>CANNOT<span class="w"> </span>be<span class="w"> </span>changed<span class="w"> </span>later.
+Project<span class="w"> </span>IDs<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span><span class="m">6</span>-30<span class="w"> </span>characters<span class="w"> </span><span class="o">(</span>lowercase<span class="w"> </span>ASCII,<span class="w"> </span>digits,<span class="w"> </span>or
+hyphens<span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>length<span class="w"> </span>and<span class="w"> </span>start<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>lowercase<span class="w"> </span>letter.
+</pre></div>
+</div>
+<p>I chose the project ID to be “vertex”. This project is about Vertex AI, but a name like “vertex-ai” will be confusing with <code class="docutils literal notranslate"><span class="pre">~/github/vertex-ai</span></code> and other stuff.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>WARNING:<span class="w"> </span>Project<span class="w"> </span>creation<span class="w"> </span>failed:<span class="w"> </span>HttpError<span class="w"> </span>accessing<span class="w"> </span>
+<span class="w">  </span>...
+<span class="s2">&quot;error&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;code&quot;</span>:<span class="w"> </span><span class="m">409</span>,
+<span class="w">    </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Requested entity already exists&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;status&quot;</span>:<span class="w"> </span><span class="s2">&quot;ALREADY_EXISTS&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+&gt;
+Please<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>the<span class="w"> </span>project<span class="w"> </span><span class="o">[</span>vertex<span class="o">]</span><span class="w"> </span>using
+<span class="w">    </span>$<span class="w"> </span>gcloud<span class="w"> </span>projects<span class="w"> </span>create<span class="w"> </span>vertex
+or<span class="w"> </span>change<span class="w"> </span>to<span class="w"> </span>another<span class="w"> </span>project<span class="w"> </span>using
+<span class="w">    </span>$<span class="w"> </span>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>&lt;PROJECT<span class="w"> </span>ID&gt;
+The<span class="w"> </span>Google<span class="w"> </span>Cloud<span class="w"> </span>CLI<span class="w"> </span>is<span class="w"> </span>configured<span class="w"> </span>and<span class="w"> </span>ready<span class="w"> </span>to<span class="w"> </span>use!
+
+*<span class="w"> </span>Commands<span class="w"> </span>that<span class="w"> </span>require<span class="w"> </span>authentication<span class="w"> </span>will<span class="w"> </span>use<span class="w"> </span>admin@thekim.altostrat.com<span class="w"> </span>by<span class="w"> </span>default
+Run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span><span class="nb">help</span><span class="w"> </span>config<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>learn<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>individual<span class="w"> </span>settings
+
+This<span class="w"> </span>gcloud<span class="w"> </span>configuration<span class="w"> </span>is<span class="w"> </span>called<span class="w"> </span><span class="o">[</span>vertex<span class="o">]</span>.<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span>create<span class="w"> </span>additional<span class="w"> </span>configurations<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>work<span class="w"> </span>with<span class="w"> </span>multiple<span class="w"> </span>accounts<span class="w"> </span>and/or<span class="w"> </span>projects.
+Run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span>topic<span class="w"> </span>configurations<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>learn<span class="w"> </span>more.
+
+Some<span class="w"> </span>things<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>next:
+
+*<span class="w"> </span>Run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span>--help<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>Cloud<span class="w"> </span>Platform<span class="w"> </span>services<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>interact<span class="w"> </span>with.<span class="w"> </span>And<span class="w"> </span>run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span><span class="nb">help</span><span class="w"> </span>COMMAND<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="nb">help</span><span class="w"> </span>on<span class="w"> </span>any<span class="w"> </span>gcloud<span class="w"> </span>command.
+*<span class="w"> </span>Run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span>topic<span class="w"> </span>--help<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>learn<span class="w"> </span>about<span class="w"> </span>advanced<span class="w"> </span>features<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>CLI<span class="w"> </span>like<span class="w"> </span>arg<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>output<span class="w"> </span>formatting
+*<span class="w"> </span>Run<span class="w"> </span><span class="sb">`</span>gcloud<span class="w"> </span>cheat-sheet<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>a<span class="w"> </span>roster<span class="w"> </span>of<span class="w"> </span>go-to<span class="w"> </span><span class="sb">`</span>gcloud<span class="sb">`</span><span class="w"> </span>commands.
+$
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -434,20 +519,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2_2-install_google_cloud_sdk.html"
+       href="2_4-update_google_cloud_sdk.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2.2. Install Google Cloud SDK</p>
+        <p class="prev-next-title">2-4. Update Google Cloud SDK</p>
       </div>
     </a>
     <a class="right-next"
-       href="2_4-set_the_billing_account_for_project.html"
+       href="2_6-create_a_new_project.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2-4. Set the Billing Account for Project</p>
+        <p class="prev-next-title">2-6. Create a New Project</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -457,6 +542,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-init"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">init</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-output">Example output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertex-failed"><code class="docutils literal notranslate"><span class="pre">vertex</span></code> failed</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

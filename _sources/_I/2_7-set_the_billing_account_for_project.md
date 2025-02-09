@@ -1,4 +1,4 @@
-# 2-4. Set the Billing Account for Project
+# 2-7. Set the Billing Account for Project
 * Created: 2025-02-05 (Wed)
 * Updated: 2025-02-05 (Wed)
 
