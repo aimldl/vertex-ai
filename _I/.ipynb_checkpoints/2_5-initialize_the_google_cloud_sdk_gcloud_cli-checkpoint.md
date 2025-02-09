@@ -1,12 +1,12 @@
-# 2_5. Initialize `gcloud`
+# 2_5. Initialize the Google Cloud SDK (gcloud CLI)
 * Created: 2025-02-04 (Tue)
 * Updated: 2025-02-09 (Sun)
 
-## `gcloud init`
-Run 
+## `gcloud init` 
 ```bash
 $ gcloud init
 ```
+This command sets up the necessary configuration files and allows to interact with Google Cloud services from the command line.
 
 ## Example output
 ```bash

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Introduction &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>3. Connecting to a VM via SSH &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_I/1-introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_I/3_0-connecting_to_a_vm_via_ssh';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Set up the Environment" href="2_0-set_up_environment.html" />
-    <link rel="prev" title="Vertex AI" href="../index.html" />
+    <link rel="next" title="3. Getting Started with Vertex AI" href="../_II/3_0-getting_started_with_vertex-ai.html" />
+    <link rel="prev" title="2-7. Set the Billing Account for Project" href="2_7-set_the_billing_account_for_project.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,15 +181,15 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Environment Set-up</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="2_0-set_up_environment.html">2. Set up the Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1"><a class="reference internal" href="1-introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2_0-set_up_environment.html">2. Set up the Environment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="2_1-conda_environment.html">2-1. Conda Environment: Create and Activate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_3-start_using_the_google_cloud_sdk.html">2-3. Start using the Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_4-update_google_cloud_sdk.html">2-4. Update Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_6-create_a_new_project.html">2-6. Create a New Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_7-set_the_billing_account_for_project.html">2-7. Set the Billing Account for Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_0-connecting_to_a_vm_via_ssh.html">3. Connecting to a VM via SSH</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3. Connecting to a VM via SSH</a></li>
 </ul>
 </details></li>
 </ul>
@@ -271,7 +271,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_I/1-introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_I/3_0-connecting_to_a_vm_via_ssh.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +301,7 @@
       
       
       
-      <li><a href="../_sources/_I/1-introduction.md" target="_blank"
+      <li><a href="../_sources/_I/3_0-connecting_to_a_vm_via_ssh.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Introduction</h1>
+    <h1>3. Connecting to a VM via SSH</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -395,8 +395,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertex-ai-classic-ml-generative-ai">Vertex AI: Classic ML + Generative AI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource-official-documentation">Useful Resource: Official Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite">Prerequisite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-keygen"><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-compute-config-ssh"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">config-ssh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-compute-os-login-ssh-keys-add-key-file-home-ssh-google-compute-engine-pub-project-project-id"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">os-login</span> <span class="pre">ssh-keys</span> <span class="pre">add</span> <span class="pre">--key-file=$HOME/.ssh/google_compute_engine.pub</span> <span class="pre">--project=$PROJECT_ID</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-permission-denied-publickey-error">Fixing the <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span> <span class="pre">(publickey)</span></code> error</a></li>
 </ul>
             </nav>
         </div>
@@ -408,37 +411,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="connecting-to-a-vm-via-ssh">
+<h1>3. Connecting to a VM via SSH<a class="headerlink" href="#connecting-to-a-vm-via-ssh" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Created: 2025-02-04 (Tue)</p></li>
-<li><p>Updated: 2025-02-05 (Wed)</p></li>
+<li><p>Created: 2025-02-09 (Sun)</p></li>
+<li><p>Updated: 2025-02-09 (Sun)</p></li>
 </ul>
-<section id="vertex-ai-classic-ml-generative-ai">
-<h2>Vertex AI: Classic ML + Generative AI<a class="headerlink" href="#vertex-ai-classic-ml-generative-ai" title="Link to this heading">#</a></h2>
-<p>Vertex AI is an end-to-end platform designed to streamline the building and deployment of machine learning models.  With the rise of generative AI, exemplified by OpenAI’s ChatGPT, Google has integrated its own generative AI capabilities into Vertex AI.  Consequently, Vertex AI has evolved into a comprehensive platform supporting both traditional machine learning and generative AI.</p>
+<section id="prerequisite">
+<h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gcloud</span></code> command is pre-installed on the local machine.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gcloud</span></code> command was initialized. That is, the <code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">init</span></code> command was run and configured.</p></li>
+</ul>
 </section>
-<section id="useful-resource-official-documentation">
-<h2>Useful Resource: Official Documentation<a class="headerlink" href="#useful-resource-official-documentation" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Vertex AI &gt; Doc. &gt; <a class="reference external" href="https://cloud.google.com/vertex-ai/docs">Vertex AI documentation</a>
-Google Cloud’s official documents are the recommended source to learn about Vertex AI. I often encountered the unofficial guides are out-dated. This document is not an exception. The official doc contains the up-to-date “official” content which is comprehensive and well-maintaned by Google Cloud.</p></li>
-</ul>
-<p>As of now, the table of content of the Vertex AI official doc is:</p>
-<ul class="simple">
-<li><p>Get started with GenAI</p></li>
-<li><p>Get started with Vertex AI</p></li>
-<li><p>Train your own ML model</p></li>
-<li><p>Manage your workflow</p></li>
-<li><p>Tutorials and samples</p></li>
-<li><p>Resources</p></li>
-</ul>
-<p>This doc also includes:</p>
-<ul class="simple">
-<li><p>Latest Videos and</p></li>
-<li><p>the list of Vertex AI and Cloud ML products.</p></li>
-</ul>
-<p>The plethora of information provided by the doc is both blessing and curse. Undoubtedly, it is a useful resource serving as the single source of truth. Unfornately for a beginner, there are some hurdles to use Vertex AI even thought there are several “Getting started documents” for many sub-topics.</p>
+<section id="ssh-keygen">
+<h2><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code><a class="headerlink" href="#ssh-keygen" title="Link to this heading">#</a></h2>
+<p>Run the ssh-keygen command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>~/.ssh/KEY_FILENAME<span class="w"> </span>-C<span class="w"> </span>USERNAME<span class="w"> </span>-b<span class="w"> </span><span class="m">2048</span>
+</pre></div>
+</div>
+<p>For example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>~/.ssh/hpc-toolkit-gsc<span class="w"> </span>-C<span class="w"> </span>thekim<span class="w"> </span>-b<span class="w"> </span><span class="m">2048</span>
+</pre></div>
+</div>
+</section>
+<section id="gcloud-compute-config-ssh">
+<h2><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">config-ssh</span></code><a class="headerlink" href="#gcloud-compute-config-ssh" title="Link to this heading">#</a></h2>
+<p>This command configures SSH access to your Google Compute Engine (GCE) instances. It generates an SSH key pair (if one doesn’t exist) and adds the public key to your project’s metadata. This allows you to connect to GCE instances using the gcloud compute ssh command without needing to manually manage SSH keys. However, this command is not what you should be using for your Slurm cluster. It’s designed for connecting to individual GCE VMs, not a pre-configured cluster.</p>
+</section>
+<section id="gcloud-compute-os-login-ssh-keys-add-key-file-home-ssh-google-compute-engine-pub-project-project-id">
+<h2><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">os-login</span> <span class="pre">ssh-keys</span> <span class="pre">add</span> <span class="pre">--key-file=$HOME/.ssh/google_compute_engine.pub</span> <span class="pre">--project=$PROJECT_ID</span></code><a class="headerlink" href="#gcloud-compute-os-login-ssh-keys-add-key-file-home-ssh-google-compute-engine-pub-project-project-id" title="Link to this heading">#</a></h2>
+<p>This command adds your public SSH key to the OS Login configuration for your Google Cloud project. OS Login is a service that manages SSH access to VMs. This is the <strong>correct way to add your key for SSH access to your Slurm controller</strong>. It associates your key with your Google Cloud user account.</p>
+</section>
+<section id="fixing-the-permission-denied-publickey-error">
+<h2>Fixing the <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span> <span class="pre">(publickey)</span></code> error<a class="headerlink" href="#fixing-the-permission-denied-publickey-error" title="Link to this heading">#</a></h2>
+<p>The error “Permission denied (publickey)” means that the remote server, e.g. he Slurm controller, doesn’t have your public key authorized for access. Although you have added the key to the project with gcloud compute os-login ssh-keys add, you still need to make sure OS Login is enabled on the instances in your Slurm cluster.</p>
+<p>Here’s how to fix it:</p>
+<p>Verify OS Login is Enabled:  OS Login must be enabled at the project or instance level.  Your system administrator likely needs to do this. They should check that OS Login is enabled for the VMs in the Slurm cluster.  If it’s not, they need to enable it. You cannot do this yourself unless you have the appropriate project permissions.</p>
+<p>Metadata vs. OS Login:  The older method of managing SSH keys on GCE was using project or instance metadata.  OS Login is the recommended approach now.  Make sure your system admin isn’t trying to manage keys through metadata in addition to OS Login, as this can cause conflicts.</p>
+<p>Check User Permissions:  Ensure your Google Cloud user account has the necessary permissions to use OS Login. The “roles/oslogin.osLogin” role should be sufficient.  Again, your system administrator would manage this.</p>
+<p>gcloud auth login: Ensure you’re logged into the correct Google account using gcloud auth login. Sometimes, cached credentials can cause issues.</p>
+<p>Re-add the Key (Just in Case):  Try re-adding your public key using the command you already used:</p>
+<p>Bash</p>
+<p>gcloud compute os-login ssh-keys add –key-file=/home/thekim/.ssh/google_compute_engine.pub –project=hpc-toolkit-gsc
+Check for Typos:  Double-check for any typos in the username (thekim in your example) or the hostname (nic0.a3m123-controller…).  Even a small mistake can lead to authentication failures.</p>
+<p>Contact Your System Administrator: The most likely scenario is that OS Login is not correctly configured on the Slurm cluster’s VMs.  Contact your system administrator to confirm that OS Login is enabled and that your user account has the correct permissions. They are the best resource for troubleshooting issues within the cluster environment.</p>
 </section>
 </section>
 
@@ -473,20 +490,20 @@ Google Cloud’s official documents are the recommended source to learn about Ve
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="2_7-set_the_billing_account_for_project.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Vertex AI</p>
+        <p class="prev-next-title">2-7. Set the Billing Account for Project</p>
       </div>
     </a>
     <a class="right-next"
-       href="2_0-set_up_environment.html"
+       href="../_II/3_0-getting_started_with_vertex-ai.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. Set up the Environment</p>
+        <p class="prev-next-title">3. Getting Started with Vertex AI</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -506,8 +523,11 @@ Google Cloud’s official documents are the recommended source to learn about Ve
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertex-ai-classic-ml-generative-ai">Vertex AI: Classic ML + Generative AI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource-official-documentation">Useful Resource: Official Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite">Prerequisite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-keygen"><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-compute-config-ssh"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">config-ssh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcloud-compute-os-login-ssh-keys-add-key-file-home-ssh-google-compute-engine-pub-project-project-id"><code class="docutils literal notranslate"><span class="pre">gcloud</span> <span class="pre">compute</span> <span class="pre">os-login</span> <span class="pre">ssh-keys</span> <span class="pre">add</span> <span class="pre">--key-file=$HOME/.ssh/google_compute_engine.pub</span> <span class="pre">--project=$PROJECT_ID</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-permission-denied-publickey-error">Fixing the <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span> <span class="pre">(publickey)</span></code> error</a></li>
 </ul>
   </nav></div>
 
