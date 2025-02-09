@@ -6,7 +6,6 @@
 ```bash
 $ gcloud version
 ```
-(example output)
 ```bash
 Google Cloud SDK 498.0.0
   ...
@@ -27,7 +26,6 @@ Run:
 ```bash
 $ gcloud version
 ```
-(example output)
 ```bash
 Google Cloud SDK 509.0.0
   ...
