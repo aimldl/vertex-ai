@@ -1,6 +1,6 @@
 # A Practical Guide to Machine Learning with Google Cloud (WIP)
 * Created: 2024-12-11 (Wed)
-* Updated: 2025-02-07 (Fri)
+* Updated: 2025-02-09 (Sun)
 
 This repository contains the files for a Jupyter Book project. The published book can be viewed at [https://aimldl.github.io/vertex-ai/](https://aimldl.github.io/vertex-ai/)
 
@@ -31,9 +31,9 @@ Open a terminal to update the book's content locally.
 (jb) $ git pull
 
 # Launch JupyterLab
-(jb) $ jupyter lab
-# or
 (jb) $ jl
+# or
+(jb) $ jupyter lab
 ```
 
 Modify files and directories using JupyterLab.
@@ -44,7 +44,11 @@ Open a separate terminal. Note the prompt starts in the same directory as your p
 # Example prompt
 # (base) your_account:~/github/vertex-ai$ 
 ```
-Execute the following commands:
+Run:
+```bash
+(jb) $ ./jb_clean_build.sh
+```
+or execute the following commands one by one:
 ```bash
 (base) $ conda activate jb
 (jb) $ jb clean . --all
@@ -53,13 +57,12 @@ Execute the following commands:
 # Optional: View the built book locally
 (jb) $ google-chrome _build/html/index.html
 ```
-
-Alternatively, run:
-```bash
-(jb) $ ./jb_clean_build.sh
-```
-
 ## 3. Pushing Changes to the Remote Repository
+Run:
+```bash
+(jb) $ ./jb_git_push.sh
+```
+or
 ```bash
 (jb) $ cd ~/github/vertex-ai
 (jb) $ jb clean . --all
@@ -75,21 +78,15 @@ Alternatively, run:
 ```
 Consider a more secure way to handle tokens than `cat ../token`. For example, use environment variables or a dedicated secrets management solution.
 
-Alternatively, run:
-```bash
-(jb) $ ./jb_git_push.sh
-```
-
 ## 4. Publishing the Book
-
-```bash
-(jb) $ ghp-import -n -p -f _build/html/
-```
-Or run:
+Run
 ```bash
 (jb) $ ./jb_publish.sh
 ```
-
+or
+```bash
+(jb) $ ghp-import -n -p -f _build/html/
+```
 The published book will be available at https://aimldl.github.io/vertex-ai/
 
 ## References
