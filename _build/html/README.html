@@ -187,15 +187,25 @@
 <li class="toctree-l2"><a class="reference internal" href="_I/2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_I/2_3-start_using_the_google_cloud_sdk.html">2-3. Start using the Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_I/2_4-update_google_cloud_sdk.html">2-4. Update Google Cloud SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_I/2_5-initialize_the_google_cloud_sdk_gcloud_cli.html">2_5. Initialize the Google Cloud SDK (gcloud CLI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_I/2_6-create_a_new_project.html">2-6. Create a New Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_I/2_7-set_the_billing_account_for_project.html">2-7. Set the Billing Account for Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_I/3_0-connecting_to_a_vm_via_ssh.html">3. Connecting to a VM via SSH</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="_I/3_0-connecting_to_a_vm_via_ssh.html">3. Connecting to a VM via SSH</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Getting Started with Vertex AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="_II/3_0-getting_started_with_vertex-ai.html">3. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_II/4_0-getting_started_with_vertex-ai.html">4. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_II/5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod.html">5. Slurm Essentials for Cluster Toolkit and Vertex AI Infinipod</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_1-getting_started_with_a_slurm_cluster.html">5.1. Getting Started with a Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_2-frequently_used_client_commands.html">5.2. Frequently Used Client Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_3-sinfo.html">5.3. sinfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_4-squeue.html">5.4. squeue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_5-sbatch.html">5.5. sbatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_II/5_6-srun.html">5.6. srun</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -420,7 +430,7 @@ document.write(`
 <h1>A Practical Guide to Machine Learning with Google Cloud (WIP)<a class="headerlink" href="#a-practical-guide-to-machine-learning-with-google-cloud-wip" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Created: 2024-12-11 (Wed)</p></li>
-<li><p>Updated: 2025-02-07 (Fri)</p></li>
+<li><p>Updated: 2025-02-09 (Sun)</p></li>
 </ul>
 <p>This repository contains the files for a Jupyter Book project. The published book can be viewed at <a class="reference external" href="https://aimldl.github.io/vertex-ai/">https://aimldl.github.io/vertex-ai/</a></p>
 <section id="setting-up-this-jupyter-book-project">
@@ -451,9 +461,9 @@ document.write(`
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>pull
 
 <span class="c1"># Launch JupyterLab</span>
-<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jupyter<span class="w"> </span>lab
-<span class="c1"># or</span>
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jl
+<span class="c1"># or</span>
+<span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
 <p>Modify files and directories using JupyterLab.</p>
@@ -465,7 +475,11 @@ document.write(`
 <span class="c1"># (base) your_account:~/github/vertex-ai$ </span>
 </pre></div>
 </div>
-<p>Execute the following commands:</p>
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_clean_build.sh
+</pre></div>
+</div>
+<p>or execute the following commands one by one:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>jb
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>clean<span class="w"> </span>.<span class="w"> </span>--all
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>build<span class="w"> </span>.
@@ -474,13 +488,14 @@ document.write(`
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>google-chrome<span class="w"> </span>_build/html/index.html
 </pre></div>
 </div>
-<p>Alternatively, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_clean_build.sh
-</pre></div>
-</div>
 </section>
 <section id="pushing-changes-to-the-remote-repository">
 <h2>3. Pushing Changes to the Remote Repository<a class="headerlink" href="#pushing-changes-to-the-remote-repository" title="Link to this heading">#</a></h2>
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_git_push.sh
+</pre></div>
+</div>
+<p>or</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/github/vertex-ai
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>clean<span class="w"> </span>.<span class="w"> </span>--all
 <span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>jb<span class="w"> </span>build<span class="w"> </span>.
@@ -495,18 +510,15 @@ document.write(`
 </pre></div>
 </div>
 <p>Consider a more secure way to handle tokens than <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">../token</span></code>. For example, use environment variables or a dedicated secrets management solution.</p>
-<p>Alternatively, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_git_push.sh
-</pre></div>
-</div>
 </section>
 <section id="publishing-the-book">
 <h2>4. Publishing the Book<a class="headerlink" href="#publishing-the-book" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html/
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_publish.sh
 </pre></div>
 </div>
-<p>Or run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>./jb_publish.sh
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jb<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html/
 </pre></div>
 </div>
 <p>The published book will be available at <a class="reference external" href="https://aimldl.github.io/vertex-ai/">https://aimldl.github.io/vertex-ai/</a></p>

@@ -13,13 +13,21 @@ parts:
       - file: _I/2_2-install_google_cloud_sdk
       - file: _I/2_3-start_using_the_google_cloud_sdk
       - file: _I/2_4-update_google_cloud_sdk
-      - file: _I/2_5-2_5-initialize_the_google_cloud_sdk_gcloud_cli
+      - file: _I/2_5-initialize_the_google_cloud_sdk_gcloud_cli
       - file: _I/2_6-create_a_new_project
       - file: _I/2_7-set_the_billing_account_for_project
-      - file: _I/3_0-connecting_to_a_vm_via_ssh
+    - file: _I/3_0-connecting_to_a_vm_via_ssh
   - caption: II. Getting Started with Vertex AI
     chapters:
-    - file: _II/3_0-getting_started_with_vertex-ai
+    - file: _II/4_0-getting_started_with_vertex-ai
+    - file: _II/5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod
+      sections:
+        - file: _II/5_1-getting_started_with_a_slurm_cluster
+        - file: _II/5_2-frequently_used_client_commands
+        - file: _II/5_3-sinfo
+        - file: _II/5_4-squeue
+        - file: _II/5_5-sbatch
+        - file: _II/5_6-srun
   - caption: III. Simple Examples
     chapters:
     - file: _III/4_0-simple_examples

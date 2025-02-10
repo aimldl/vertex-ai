@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+  - caption: I. Environment Set-up
+    chapters:
+    - file: _I/1-introduction
+    - file: _I/2_0-set_up_environment
+  - caption: II. Getting Started with Vertex AI
+    chapters:
+    - file: _II/3_0-getting_started_with_vertex-ai
+    - file: _II/3_1-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod
+  - caption: III. Simple Examples
+    chapters:
+    - file: _III/4_0-simple_examples
