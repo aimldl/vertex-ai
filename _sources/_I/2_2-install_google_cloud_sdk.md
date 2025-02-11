@@ -2,7 +2,7 @@
 * Created: 2025-02-04 (Tue)
 * Updated: 2025-02-09 (Sun)
 
-## Introducing Google Cloud SDK (Software Development Kit)
+## Introducing Google Cloud SDK
 Google Cloud SDK is the overall suite of development tools, including the gcloud CLI. You can use the gcloud CLI to manage various Google Cloud resources and services directly from your terminal.
 
 ```

@@ -187,15 +187,25 @@
 <li class="toctree-l2"><a class="reference internal" href="2_2-install_google_cloud_sdk.html">2.2. Install Google Cloud SDK</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2-3. Start using the Google Cloud SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_4-update_google_cloud_sdk.html">2-4. Update Google Cloud SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_5-initialize_gcloud.html">2_5. Initialize <code class="docutils literal notranslate"><span class="pre">gcloud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_5-initialize_the_google_cloud_sdk_gcloud_cli.html">2_5. Initialize the Google Cloud SDK (gcloud CLI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_6-create_a_new_project.html">2-6. Create a New Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_7-set_the_billing_account_for_project.html">2-7. Set the Billing Account for Project</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="3_0-connecting_to_a_vm_via_ssh.html">3. Connecting to a VM via SSH</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Getting Started with Vertex AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../_II/3_0-getting_started_with_vertex-ai.html">3. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_II/4_0-getting_started_with_vertex-ai.html">4. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../_II/5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod.html">5. Slurm Essentials for Cluster Toolkit and Vertex AI Infinipod</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_1-getting_started_with_a_slurm_cluster.html">5.1. Getting Started with a Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_2-frequently_used_client_commands.html">5.2. Frequently Used Client Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_3-sinfo.html">5.3. sinfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_4-squeue.html">5.4. squeue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_5-sbatch.html">5.5. sbatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/5_6-srun.html">5.6. srun</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -372,7 +382,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -388,6 +400,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands">Example commands</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -404,6 +424,28 @@ document.write(`
 <li><p>Updated: 2025-02-09 (Sun)</p></li>
 </ul>
 <p>For more details, see <a class="reference external" href="https://cloud.google.com/cli?hl=en#:~:text=Pricing-,Pricing,with%20a%20Google%20Cloud%20account.&amp;amp;text=">Google Cloud Command Line Interface (gcloud CLI)</a> and <a class="reference external" href="https://cloud.google.com/sdk/gcloud#:~:text=You%20can%20also%20use%20the,configuration%2C%20and%20perform%20other%20tasks.">gcloud CLI overview</a>.</p>
+<section id="example-commands">
+<h2>Example commands<a class="headerlink" href="#example-commands" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>PROJECT_ID
+$<span class="w"> </span>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>compute/zone<span class="w"> </span>NAME
+$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>project-info<span class="w"> </span>describe<span class="w"> </span>--project<span class="o">=</span>hpc-toolkit-gsc<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;value(osLogin)&quot;</span>
+</pre></div>
+</div>
+<p>OS Login</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh
+$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>config-ssh
+$<span class="w"> </span>gcloud<span class="w"> </span>cloud-shell<span class="w"> </span>ssh
+$<span class="w"> </span>gcloud<span class="w"> </span>workstations<span class="w"> </span>ssh
+$<span class="w"> </span>gcloud<span class="w"> </span>bms<span class="w"> </span>ssh-keys<span class="w"> </span>add
+$<span class="w"> </span>gcloud<span class="w"> </span>bms<span class="w"> </span>ssh-keys<span class="w"> </span>list
+$<span class="w"> </span>gcloud<span class="w"> </span>bms<span class="w"> </span>ssh-keys<span class="w"> </span>remove
+$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>os-login<span class="w"> </span>ssh-keys<span class="w"> </span>add
+$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>os-login<span class="w"> </span>ssh-keys<span class="w"> </span>describe
+$<span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>os-login<span class="w"> </span>ssh-keys<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Compute Engine &gt; Doc. &gt; Guides &gt; [Troubleshooting OS Login](<a class="reference external" href="https://cloud.google.com/compute/docs/troubleshooting/troubleshoot-os-login">https://cloud.google.com/compute/docs/troubleshooting/troubleshoot-os-login</a>]</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,6 +502,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands">Example commands</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
