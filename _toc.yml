@@ -31,6 +31,12 @@ parts:
     - file: _II/6_0-cluster_toolkit
       sections:
         - file: _II/6_1-getting_started_with_cluster_toolkit
-  - caption: III. Simple Examples
+        - file: _II/6_2-deploy_the_hpc_cluster_using_terraform
+        - file: _II/6_3-run_a_job_on_the_hpc_cluster
+        - file: _II/6_4-deploy_ai_ml_workloads
+        - file: _II/6_5-run_nccl_test
+        - file: _II/6_6
+        - file: _II/6_7
+  - caption: III. Serving LLMs
     chapters:
-    - file: _III/4_0-simple_examples
+    - file: _III/4_0-serving_llms

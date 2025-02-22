@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '_II/6_1-getting_started_with_cluster_toolkit';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Simple Examples" href="../_III/4_0-simple_examples.html" />
+    <link rel="next" title="Deploy the HPC cluster using Terraform" href="6_2-deploy_the_hpc_cluster_using_terraform.html" />
     <link rel="prev" title="6. Google Cluster Toolkit" href="6_0-cluster_toolkit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -208,12 +208,16 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Getting Started with Cluster Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_2-deploy_the_hpc_cluster_using_terraform.html">Deploy the HPC cluster using Terraform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_3-run_a_job_on_the_hpc_cluster.html">6.3. Run a job on the HPC cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_4-deploy_ai_ml_workloads.html">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_5-run_nccl_test.html">6.5. Run NCCL test</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Serving LLMs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-simple_examples.html">4. Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-serving_llms.html">4. Serving LLMs</a></li>
 </ul>
 
     </div>
@@ -410,12 +414,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-hpc-cluster-with-slurm">Deploy an HPC cluster with Slurm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-go">Install Go.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-the-go-programming-language">Prerequisite: the Go programming language</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-in-action">Commands-in-action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-cluster-toolkit-github-repository">Clone the Cluster Toolkit GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-cluster-toolkit-binary">Build the Cluster Toolkit binary</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
             </nav>
         </div>
@@ -447,37 +451,10 @@ make
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>tree
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/GoogleCloudPlatform/cluster-toolkit
-Cloning<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;cluster-toolkit&#39;</span>...
-remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">65329</span>,<span class="w"> </span><span class="k">done</span>.
-<span class="w">  </span>...
-Updating<span class="w"> </span>files:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1472</span>/1472<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
-$<span class="w"> </span>ls
-cluster-toolkit<span class="w">  </span>...
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>cluster-toolkit
-$<span class="w"> </span>ls
-CONTRIBUTING.md<span class="w">  </span>Makefile<span class="w">   </span>SECURITY.md<span class="w">  </span>community<span class="w">  </span>examples<span class="w">     </span>go.mod<span class="w">  </span>modules<span class="w">  </span>tests
-LICENSE<span class="w">          </span>README.md<span class="w">  </span>cmd<span class="w">          </span>docs<span class="w">       </span>gcluster.go<span class="w">  </span>go.sum<span class="w">  </span>pkg<span class="w">      </span>tools
-$<span class="w"> </span>make
-./gcluster<span class="w"> </span>--version
-./gcluster<span class="w"> </span>--help
-</pre></div>
-</div>
 </section>
-<section id="problem">
-<h2>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make
-Makefile:131:<span class="w"> </span>***<span class="w"> </span>ERROR:<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>go<span class="w"> </span><span class="k">in</span><span class="w"> </span>PATH,<span class="w"> </span>visit:<span class="w"> </span>https://go.dev/doc/install.<span class="w">  </span>Stop.
-$
-</pre></div>
-</div>
-</section>
-<section id="hint">
-<h2>Hint<a class="headerlink" href="#hint" title="Link to this heading">#</a></h2>
-<p>The error message indicates that “can’t find the Go programming language installation on your system.”</p>
-<section id="install-go">
-<h3>Install Go.<a class="headerlink" href="#install-go" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
+<section id="prerequisite-the-go-programming-language">
+<h2>Prerequisite: the Go programming language<a class="headerlink" href="#prerequisite-the-go-programming-language" title="Link to this heading">#</a></h2>
+<p>Install the Go programming language first. See <a class="reference external" href="https://go.dev/doc/install">https://go.dev/doc/install</a> for the full instructions.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://go.dev/dl/go1.23.6.linux-amd64.tar.gz
 </pre></div>
 </div>
@@ -500,23 +477,108 @@ $
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin
 </pre></div>
 </div>
-<p>TODO</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<p>Re-start the terminal or log back in again to see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>go<span class="w"> </span>version
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>go<span class="w"> </span>version<span class="w"> </span>go1.23.6<span class="w"> </span>linux/amd64
 </pre></div>
 </div>
 </section>
+<section id="commands-in-action">
+<h2>Commands-in-action<a class="headerlink" href="#commands-in-action" title="Link to this heading">#</a></h2>
+<section id="clone-the-cluster-toolkit-github-repository">
+<h3><a class="reference external" href="https://cloud.google.com/cluster-toolkit/docs/quickstarts/slurm-cluster#clone_the_github_repository">Clone the Cluster Toolkit GitHub repository</a><a class="headerlink" href="#clone-the-cluster-toolkit-github-repository" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/GoogleCloudPlatform/cluster-toolkit
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cloning<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;cluster-toolkit&#39;</span>...
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">65329</span>,<span class="w"> </span><span class="k">done</span>.
+<span class="w">  </span>...
+Updating<span class="w"> </span>files:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1472</span>/1472<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+$<span class="w"> </span>ls
+cluster-toolkit<span class="w">  </span>...
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>cluster-toolkit
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+CONTRIBUTING.md<span class="w">  </span>Makefile<span class="w">   </span>SECURITY.md<span class="w">  </span>community<span class="w">  </span>examples<span class="w">     </span>go.mod<span class="w">  </span>modules<span class="w">  </span>tests
+LICENSE<span class="w">          </span>README.md<span class="w">  </span>cmd<span class="w">          </span>docs<span class="w">       </span>gcluster.go<span class="w">  </span>go.sum<span class="w">  </span>pkg<span class="w">      </span>tools
+</pre></div>
+</div>
 </section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="build-the-cluster-toolkit-binary">
+<h3><a class="reference external" href="https://cloud.google.com/cluster-toolkit/docs/quickstarts/slurm-cluster#build_the_binary">Build the Cluster Toolkit binary</a><a class="headerlink" href="#build-the-cluster-toolkit-binary" title="Link to this heading">#</a></h3>
+<p>The Go programming language is necessary to build this. Otherwise,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make
+Makefile:131:<span class="w"> </span>***<span class="w"> </span>ERROR:<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>go<span class="w"> </span><span class="k">in</span><span class="w"> </span>PATH,<span class="w"> </span>visit:<span class="w"> </span>https://go.dev/doc/install.<span class="w">  </span>Stop.
+$
+</pre></div>
+</div>
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Makefile:154:<span class="w"> </span>WARNING:<span class="w"> </span>terraform<span class="w"> </span>not<span class="w"> </span>installed<span class="w"> </span>and<span class="w"> </span>deployments<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>work<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>machine,<span class="w"> </span>visit<span class="w"> </span>https://learn.hashicorp.com/tutorials/terraform/install-cli
+Makefile:202:<span class="w"> </span>WARNING:<span class="w"> </span>packer<span class="w"> </span>not<span class="w"> </span>installed,<span class="w"> </span>visit<span class="w"> </span>https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
+****************<span class="w"> </span>building<span class="w"> </span>gcluster<span class="w"> </span>************************
+go:<span class="w"> </span>downloading<span class="w"> </span>github.com/hashicorp/go-getter<span class="w"> </span>v1.7.8
+<span class="w">  </span>...
+go:<span class="w"> </span>downloading<span class="w"> </span>github.com/census-instrumentation/opencensus-proto<span class="w"> </span>v0.4.1
+$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CONTRIBUTING.md<span class="w">  </span>SECURITY.md<span class="w">  </span>examples<span class="w">     </span>go.mod<span class="w">                       </span>pkg
+LICENSE<span class="w">          </span>cmd<span class="w">          </span>gcluster<span class="w">     </span>go.sum<span class="w">                       </span>tests
+Makefile<span class="w">         </span>community<span class="w">    </span>gcluster.go<span class="w">  </span>go1.23.6.linux-amd64.tar.gz<span class="w">  </span>tools
+README.md<span class="w">        </span>docs<span class="w">         </span>ghpc<span class="w">         </span>modules
+$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gcluster<span class="w"> </span>--version
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcluster<span class="w"> </span>version<span class="w"> </span>-<span class="w"> </span>not<span class="w"> </span>built<span class="w"> </span>from<span class="w"> </span>official<span class="w"> </span>release
+Built<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span>branch.
+Commit<span class="w"> </span>info:<span class="w"> </span>v1.46.0-1-ge727f261
+$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./gcluster<span class="w"> </span>--help
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gHPC<span class="w"> </span>provides<span class="w"> </span>a<span class="w"> </span>flexible<span class="w"> </span>and<span class="w"> </span>simple<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>interface<span class="w"> </span>to<span class="w"> </span>accelerate
+HPC<span class="w"> </span>deployments<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>Google<span class="w"> </span>Cloud<span class="w"> </span>Platform.
+
+Usage:
+<span class="w">  </span>gcluster<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
+<span class="w">  </span>gcluster<span class="w"> </span><span class="o">[</span>command<span class="o">]</span>
+
+Available<span class="w"> </span>Commands:
+<span class="w">  </span>completion<span class="w">     </span>Generate<span class="w"> </span>completion<span class="w"> </span>script
+<span class="w">  </span>create<span class="w">         </span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>deployment.
+<span class="w">  </span>deploy<span class="w">         </span>deploy<span class="w"> </span>all<span class="w"> </span>resources<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>Toolkit<span class="w"> </span>deployment<span class="w"> </span>directory.
+<span class="w">  </span>destroy<span class="w">        </span>destroy<span class="w"> </span>all<span class="w"> </span>resources<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>Toolkit<span class="w"> </span>deployment<span class="w"> </span>directory.
+<span class="w">  </span>expand<span class="w">         </span>Expand<span class="w"> </span>the<span class="w"> </span>Environment<span class="w"> </span>Blueprint.
+<span class="w">  </span>export-outputs<span class="w"> </span>Export<span class="w"> </span>outputs<span class="w"> </span>from<span class="w"> </span>deployment<span class="w"> </span>group.
+<span class="w">  </span><span class="nb">help</span><span class="w">           </span>Help<span class="w"> </span>about<span class="w"> </span>any<span class="w"> </span><span class="nb">command</span>
+<span class="w">  </span>import-inputs<span class="w">  </span>Import<span class="w"> </span>input<span class="w"> </span>values<span class="w"> </span>from<span class="w"> </span>previous<span class="w"> </span>deployment<span class="w"> </span>groups.
+
+Flags:
+<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">       </span><span class="nb">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>gcluster
+<span class="w">      </span>--no-color<span class="w">   </span>Disable<span class="w"> </span>colorized<span class="w"> </span>output.
+<span class="w">  </span>-v,<span class="w"> </span>--version<span class="w">    </span>version<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcluster
+
+Use<span class="w"> </span><span class="s2">&quot;gcluster [command] --help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>a<span class="w"> </span>command.
+$
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -560,11 +622,11 @@ $
       </div>
     </a>
     <a class="right-next"
-       href="../_III/4_0-simple_examples.html"
+       href="6_2-deploy_the_hpc_cluster_using_terraform.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Simple Examples</p>
+        <p class="prev-next-title">Deploy the HPC cluster using Terraform</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -585,12 +647,12 @@ $
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-hpc-cluster-with-slurm">Deploy an HPC cluster with Slurm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-go">Install Go.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-the-go-programming-language">Prerequisite: the Go programming language</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-in-action">Commands-in-action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-cluster-toolkit-github-repository">Clone the Cluster Toolkit GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-cluster-toolkit-binary">Build the Cluster Toolkit binary</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
   </nav></div>
 

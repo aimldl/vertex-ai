@@ -208,12 +208,16 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="6_1-getting_started_with_cluster_toolkit.html">6.1. Getting Started with Cluster Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_2-deploy_the_hpc_cluster_using_terraform.html">Deploy the HPC cluster using Terraform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_3-run_a_job_on_the_hpc_cluster.html">6.3. Run a job on the HPC cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_4-deploy_ai_ml_workloads.html">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_5-run_nccl_test.html">6.5. Run NCCL test</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Serving LLMs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-simple_examples.html">4. Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-serving_llms.html">4. Serving LLMs</a></li>
 </ul>
 
     </div>
@@ -411,6 +415,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-hostname-sh">test-hostname.sh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-sbatch-sh">test-sbatch.sh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-command-in-a-docker-container">Run a command in a Docker container.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-output">Check the output</a></li>
 </ul>
             </nav>
         </div>
@@ -525,40 +531,181 @@ $<span class="w"> </span>cat<span class="w"> </span>test_job.err
 $
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</section>
+<section id="run-a-command-in-a-docker-container">
+<h2>Run a command in a Docker container.<a class="headerlink" href="#run-a-command-in-a-docker-container" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>tests
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tests/
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<p>And run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tee<span class="w"> </span>hello.job<span class="w"> </span><span class="s">&lt;&lt; JOB</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">#SBATCH --job-name=dkr_ex</span>
+<span class="s">#SBATCH --ntasks-per-node=1</span>
+<span class="s">#SBATCH --cpus-per-task=1</span>
+<span class="s">#SBATCH --mem-per-cpu=2</span>
+<span class="s">#SBATCH --partition=a3mega</span>
+<span class="s">#SBATCH --array=1-10</span>
+<span class="s">#SBATCH --output=out_%3A_%3a.txt</span>
+<span class="s">#SBATCH --error=err_%3A_%3a.txt</span>
+
+<span class="s">docker run hello-world</span>
+<span class="s">JOB</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<p>Note: change partition to yours. My partition name is <code class="docutils literal notranslate"><span class="pre">a3mega</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--partition=a3mega</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sinfo
+PARTITION<span class="w"> </span>AVAIL<span class="w">  </span>TIMELIMIT<span class="w">  </span>NODES<span class="w">  </span>STATE<span class="w"> </span>NODELIST
+a3mega*<span class="w">      </span>up<span class="w">   </span>infinite<span class="w">     </span><span class="m">16</span><span class="w">   </span>idle<span class="w"> </span>a3m123-a3meganodeset-<span class="o">[</span><span class="m">0</span>-15<span class="o">]</span>
+debug<span class="w">        </span>up<span class="w">   </span>infinite<span class="w">      </span><span class="m">4</span><span class="w">  </span>idle~<span class="w"> </span>a3m123-debugnodeset-<span class="o">[</span><span class="m">0</span>-3<span class="o">]</span>
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<p>For other example, see <a class="reference external" href="https://github.com/GoogleCloudPlatform/scientific-computing-examples/blob/main/slurm-cookbook/docker/README.md">Run a job in the cluster</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+hello.job
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>hello.job<span class="w">  </span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=dkr_ex</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=2</span>
+<span class="c1">#SBATCH --partition=a3mega</span>
+<span class="c1">#SBATCH --array=1-10</span>
+<span class="c1">#SBATCH --output=out_%3A_%3a.txt</span>
+<span class="c1">#SBATCH --error=err_%3A_%3a.txt</span>
+
+docker<span class="w"> </span>run<span class="w"> </span>hello-world
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sbatch<span class="w"> </span>hello.job
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">1791</span>
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>squeue
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+<span class="w">            </span>1791_2<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-0
+<span class="w">            </span>1791_3<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-9
+<span class="w">            </span>1791_4<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-2
+<span class="w">            </span>1791_5<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-4
+<span class="w">            </span>1791_6<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-11
+<span class="w">            </span>1791_7<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-1
+<span class="w">            </span>1791_8<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-14
+<span class="w">            </span>1791_9<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:01<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-7
+<span class="w">           </span>1791_10<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:01<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-10
+<span class="w">            </span>1791_1<span class="w">    </span>a3mega<span class="w">   </span>dkr_ex<span class="w"> </span>thekim_g<span class="w"> </span>CG<span class="w">       </span><span class="m">0</span>:02<span class="w">      </span><span class="m">1</span><span class="w"> </span>a3m123-a3meganodeset-15
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>squeue
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>err_1791_001.txt<span class="w">  </span>err_1791_004.txt<span class="w">  </span>err_1791_007.txt<span class="w">  </span>err_1791_010.txt<span class="w">  </span>out_1791_002.txt<span class="w">  </span>out_1791_005.txt<span class="w">  </span>out_1791_008.txt
+err_1791_002.txt<span class="w">  </span>err_1791_005.txt<span class="w">  </span>err_1791_008.txt<span class="w">  </span>hello.job<span class="w">         </span>out_1791_003.txt<span class="w">  </span>out_1791_006.txt<span class="w">  </span>out_1791_009.txt
+err_1791_003.txt<span class="w">  </span>err_1791_006.txt<span class="w">  </span>err_1791_009.txt<span class="w">  </span>out_1791_001.txt<span class="w">  </span>out_1791_004.txt<span class="w">  </span>out_1791_007.txt<span class="w">  </span>out_1791_010.txt
+$
+</pre></div>
+</div>
+</section>
+<section id="check-the-output">
+<h2>Check the output<a class="headerlink" href="#check-the-output" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>out_1791_001.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello<span class="w"> </span>from<span class="w"> </span>Docker!
+This<span class="w"> </span>message<span class="w"> </span>shows<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>installation<span class="w"> </span>appears<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>working<span class="w"> </span>correctly.
+
+To<span class="w"> </span>generate<span class="w"> </span>this<span class="w"> </span>message,<span class="w"> </span>Docker<span class="w"> </span>took<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>steps:
+<span class="w"> </span><span class="m">1</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>client<span class="w"> </span>contacted<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>daemon.
+<span class="w"> </span><span class="m">2</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>pulled<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;hello-world&quot;</span><span class="w"> </span>image<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>Hub.
+<span class="w">    </span><span class="o">(</span>amd64<span class="o">)</span>
+<span class="w"> </span><span class="m">3</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>created<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>container<span class="w"> </span>from<span class="w"> </span>that<span class="w"> </span>image<span class="w"> </span>which<span class="w"> </span>runs<span class="w"> </span>the
+<span class="w">    </span>executable<span class="w"> </span>that<span class="w"> </span>produces<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>currently<span class="w"> </span>reading.
+<span class="w"> </span><span class="m">4</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>streamed<span class="w"> </span>that<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>client,<span class="w"> </span>which<span class="w"> </span>sent<span class="w"> </span>it
+<span class="w">    </span>to<span class="w"> </span>your<span class="w"> </span>terminal.
+
+To<span class="w"> </span>try<span class="w"> </span>something<span class="w"> </span>more<span class="w"> </span>ambitious,<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>run<span class="w"> </span>an<span class="w"> </span>Ubuntu<span class="w"> </span>container<span class="w"> </span>with:
+<span class="w"> </span>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+
+Share<span class="w"> </span>images,<span class="w"> </span>automate<span class="w"> </span>workflows,<span class="w"> </span>and<span class="w"> </span>more<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>free<span class="w"> </span>Docker<span class="w"> </span>ID:
+<span class="w"> </span>https://hub.docker.com/
+
+For<span class="w"> </span>more<span class="w"> </span>examples<span class="w"> </span>and<span class="w"> </span>ideas,<span class="w"> </span>visit:
+<span class="w"> </span>https://docs.docker.com/get-started/
+
+$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>out_1791_010.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello<span class="w"> </span>from<span class="w"> </span>Docker!
+This<span class="w"> </span>message<span class="w"> </span>shows<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>installation<span class="w"> </span>appears<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>working<span class="w"> </span>correctly.
+
+To<span class="w"> </span>generate<span class="w"> </span>this<span class="w"> </span>message,<span class="w"> </span>Docker<span class="w"> </span>took<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>steps:
+<span class="w"> </span><span class="m">1</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>client<span class="w"> </span>contacted<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>daemon.
+<span class="w"> </span><span class="m">2</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>pulled<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;hello-world&quot;</span><span class="w"> </span>image<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>Hub.
+<span class="w">    </span><span class="o">(</span>amd64<span class="o">)</span>
+<span class="w"> </span><span class="m">3</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>created<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>container<span class="w"> </span>from<span class="w"> </span>that<span class="w"> </span>image<span class="w"> </span>which<span class="w"> </span>runs<span class="w"> </span>the
+<span class="w">    </span>executable<span class="w"> </span>that<span class="w"> </span>produces<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>currently<span class="w"> </span>reading.
+<span class="w"> </span><span class="m">4</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>streamed<span class="w"> </span>that<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>client,<span class="w"> </span>which<span class="w"> </span>sent<span class="w"> </span>it
+<span class="w">    </span>to<span class="w"> </span>your<span class="w"> </span>terminal.
+
+To<span class="w"> </span>try<span class="w"> </span>something<span class="w"> </span>more<span class="w"> </span>ambitious,<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>run<span class="w"> </span>an<span class="w"> </span>Ubuntu<span class="w"> </span>container<span class="w"> </span>with:
+<span class="w"> </span>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+
+Share<span class="w"> </span>images,<span class="w"> </span>automate<span class="w"> </span>workflows,<span class="w"> </span>and<span class="w"> </span>more<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>free<span class="w"> </span>Docker<span class="w"> </span>ID:
+<span class="w"> </span>https://hub.docker.com/
+
+For<span class="w"> </span>more<span class="w"> </span>examples<span class="w"> </span>and<span class="w"> </span>ideas,<span class="w"> </span>visit:
+<span class="w"> </span>https://docs.docker.com/get-started/
+$
+</pre></div>
+</div>
+<p>The same output.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>err_1791_001.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;hello-world:latest&#39;</span><span class="w"> </span>locally
+latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/hello-world
+e6590344b1a5:<span class="w"> </span>Pulling<span class="w"> </span>fs<span class="w"> </span>layer
+e6590344b1a5:<span class="w"> </span>Verifying<span class="w"> </span>Checksum
+e6590344b1a5:<span class="w"> </span>Download<span class="w"> </span><span class="nb">complete</span>
+e6590344b1a5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+Digest:<span class="w"> </span>sha256:d715f14f9eca81473d9112df50457893aa4d099adeb4729f679006bf5ea12407
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>hello-world:latest
+$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>err_1791_010.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;hello-world:latest&#39;</span><span class="w"> </span>locally
+latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/hello-world
+e6590344b1a5:<span class="w"> </span>Pulling<span class="w"> </span>fs<span class="w"> </span>layer
+e6590344b1a5:<span class="w"> </span>Verifying<span class="w"> </span>Checksum
+e6590344b1a5:<span class="w"> </span>Download<span class="w"> </span><span class="nb">complete</span>
+e6590344b1a5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+Digest:<span class="w"> </span>sha256:d715f14f9eca81473d9112df50457893aa4d099adeb4729f679006bf5ea12407
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>hello-world:latest
+$
 </pre></div>
 </div>
 </section>
@@ -630,6 +777,8 @@ $
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-hostname-sh">test-hostname.sh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-sbatch-sh">test-sbatch.sh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-command-in-a-docker-container">Run a command in a Docker container.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-output">Check the output</a></li>
 </ul>
   </nav></div>
 

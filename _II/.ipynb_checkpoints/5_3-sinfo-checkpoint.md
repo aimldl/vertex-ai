@@ -1,6 +1,6 @@
 # 5.3. sinfo
 * Created: 2024-05-15 (Wed)
-* Updated: 2025-02-10 (Mon)
+* Updated: 2025-02-22 (Sat)
 
 `sinfo` displays node and partition information and is typically the first command used after connecting to a Slurm cluster.
 
@@ -63,3 +63,13 @@ $
 ```
 Three nodes are drained. See the node index `[18,35,40]` to figure out which nodes are drained. Reach out to the system administrator to fix the problem.
 
+The situation is severe in the following case. 
+```bash
+$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+a3mega*      up   infinite     14  drain a3m123-a3meganodeset-[0-2,4-12,14-15]
+a3mega*      up   infinite      2   idle a3m123-a3meganodeset-[3,13]
+debug        up   infinite      4  idle~ a3m123-debugnodeset-[0-3]
+$
+```
+14 out of 16 nodes are drained. An action must be taken to fix the situations.

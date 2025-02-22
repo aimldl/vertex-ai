@@ -25,6 +25,9 @@ and our scope is to cover a part of Slurm Users. Specifically,
   - [Quick Start User Guide](https://slurm.schedmd.com/quickstart.html)
   - [Command/option Summary (two pages)](https://slurm.schedmd.com/pdfs/summary.pdf)
 
-
+* Github Repository
+  - https://github.com/GoogleCloudPlatform/cluster-toolkit
+  - https://github.com/GoogleCloudPlatform/scientific-computing-examples
+      - [Example: HPC Toolkit Support Slurm and Docker](https://github.com/GoogleCloudPlatform/scientific-computing-examples/blob/main/slurm-cookbook/docker/README.md)
 
 
