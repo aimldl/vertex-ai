@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Simple Examples &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>4. Serving LLMs &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -57,10 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_III/4_0-simple_examples';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_III/4_0-serving_llms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="6.1. Getting Started with Cluster Toolkit" href="../_II/6_1-getting_started_with_cluster_toolkit.html" />
+    <link rel="prev" title="6.5. Run NCCL test" href="../_II/6_5-run_nccl_test.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,12 +207,16 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../_II/6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../_II/6_1-getting_started_with_cluster_toolkit.html">6.1. Getting Started with Cluster Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/6_2-deploy_the_hpc_cluster_using_terraform.html">Deploy the HPC cluster using Terraform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/6_3-run_a_job_on_the_hpc_cluster.html">6.3. Run a job on the HPC cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/6_4-deploy_ai_ml_workloads.html">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_II/6_5-run_nccl_test.html">6.5. Run NCCL test</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Serving LLMs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Simple Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Serving LLMs</a></li>
 </ul>
 
     </div>
@@ -284,7 +288,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_III/4_0-simple_examples.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_III/4_0-serving_llms.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +318,7 @@
       
       
       
-      <li><a href="../_sources/_III/4_0-simple_examples.md" target="_blank"
+      <li><a href="../_sources/_III/4_0-serving_llms.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -396,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4. Simple Examples</h1>
+    <h1>4. Serving LLMs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,11 +414,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="simple-examples">
-<h1>4. Simple Examples<a class="headerlink" href="#simple-examples" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="serving-llms">
+<h1>4. Serving LLMs<a class="headerlink" href="#serving-llms" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Created: 2025-02-04 (Tue)</p></li>
-<li><p>Updated: 2025-02-04 (Tue)</p></li>
+<li><p>Updated: 2025-02-22 (Sat)</p></li>
 </ul>
 </section>
 
@@ -449,12 +453,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../_II/6_1-getting_started_with_cluster_toolkit.html"
+       href="../_II/6_5-run_nccl_test.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6.1. Getting Started with Cluster Toolkit</p>
+        <p class="prev-next-title">6.5. Run NCCL test</p>
       </div>
     </a>
 </div>

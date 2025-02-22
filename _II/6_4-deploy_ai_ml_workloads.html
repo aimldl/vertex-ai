@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Getting Started with Vertex AI &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
+    <title>6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster &#8212; A Practical Guide to Machine Learning with Google Cloud</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_II/4_0-getting_started_with_vertex-ai';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_II/6_4-deploy_ai_ml_workloads';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Slurm Essentials for Cluster Toolkit and Vertex AI Infinipod" href="5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod.html" />
-    <link rel="prev" title="3. Connecting to a VM via SSH" href="../_I/3_0-connecting_to_a_vm_via_ssh.html" />
+    <link rel="next" title="6.5. Run NCCL test" href="6_5-run_nccl_test.html" />
+    <link rel="prev" title="6.3. Run a job on the HPC cluster" href="6_3-run_a_job_on_the_hpc_cluster.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,7 +196,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Getting Started with Vertex AI</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Getting Started with Vertex AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_0-getting_started_with_vertex-ai.html">4. Getting Started with Vertex AI</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod.html">5. Slurm Essentials for Cluster Toolkit and Vertex AI Infinipod</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="5_1-getting_started_with_a_slurm_cluster.html">5.1. Getting Started with a Slurm Cluster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_2-frequently_used_client_commands.html">5.2. Frequently Used Client Commands</a></li>
@@ -206,11 +206,11 @@
 <li class="toctree-l2"><a class="reference internal" href="5_6-srun.html">5.6. srun</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="6_1-getting_started_with_cluster_toolkit.html">6.1. Getting Started with Cluster Toolkit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_2-deploy_the_hpc_cluster_using_terraform.html">Deploy the HPC cluster using Terraform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_3-run_a_job_on_the_hpc_cluster.html">6.3. Run a job on the HPC cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_4-deploy_ai_ml_workloads.html">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_5-run_nccl_test.html">6.5. Run NCCL test</a></li>
 </ul>
 </details></li>
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_II/4_0-getting_started_with_vertex-ai.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/aimldl/vertex-ai-ml2llm/issues/new?title=Issue%20on%20page%20%2F_II/6_4-deploy_ai_ml_workloads.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +319,7 @@
       
       
       
-      <li><a href="../_sources/_II/4_0-getting_started_with_vertex-ai.md" target="_blank"
+      <li><a href="../_sources/_II/6_4-deploy_ai_ml_workloads.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +390,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -401,11 +403,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4. Getting Started with Vertex AI</h1>
+    <h1>6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-mega-slurm-cluster-overview">A3 Mega Slurm cluster overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-a3-mega-slurm-cluster-for-ml-training">Deploy an A3 Mega Slurm cluster for ML training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-gpudirect-tcpxo-optimized-nccl-communication">Enable GPUDirect-TCPXO optimized NCCL communication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-enroot-container">Create an enroot container</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -415,13 +430,112 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-vertex-ai">
-<h1>4. Getting Started with Vertex AI<a class="headerlink" href="#getting-started-with-vertex-ai" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="deploy-ai-ml-workloads-on-a3-mega-slurm-cluster">
+<h1>6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster<a class="headerlink" href="#deploy-ai-ml-workloads-on-a3-mega-slurm-cluster" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Created: 2025-02-04 (Tue)</p></li>
-<li><p>Updated: 2025-02-05 (Wed)</p></li>
+<li><p>Created: 2024-05-15 (Wed)</p></li>
+<li><p>Updated: 2025-02-11 (Tue)</p></li>
 </ul>
-<p><a class="github reference external" href="https://github.com/GoogleCloudPlatform/generative-ai">GoogleCloudPlatform/generative-ai</a></p>
+<section id="a3-mega-slurm-cluster-overview">
+<h2><a class="reference external" href="https://cloud.google.com/cluster-toolkit/docs/deploy/a3-mega-cluster-overview">A3 Mega Slurm cluster overview</a><a class="headerlink" href="#a3-mega-slurm-cluster-overview" title="Link to this heading">#</a></h2>
+<p>Eight NVIDIA H100 GPUs, offers 80 GB GPU memory per GPU and can be configured to use GPUDirect-TCPXO</p>
+<p>Deployment architecture</p>
+<ul class="simple">
+<li><p>Cluster blueprints</p></li>
+<li><p>Deployment files</p></li>
+</ul>
+<p>Network performance components</p>
+<ul class="simple">
+<li><p>GPUDirect-TCPXO</p></li>
+<li><p>The Receive Data Path Manager (RxDM)</p></li>
+<li><p>The cluster deployment blueprint</p></li>
+</ul>
+</section>
+<section id="deploy-an-a3-mega-slurm-cluster-for-ml-training">
+<h2>Deploy an A3 Mega Slurm cluster for ML training<a class="headerlink" href="#deploy-an-a3-mega-slurm-cluster-for-ml-training" title="Link to this heading">#</a></h2>
+<p>Install Cluster Toolkit</p>
+<ul class="simple">
+<li><p>Install dependencies</p></li>
+<li></li>
+</ul>
+<p>Go to the Cluster Toolkit directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>cluster-toolkit
+</pre></div>
+</div>
+<p>Set up Cloud Storage bucket</p>
+<p>Create a reservation</p>
+<p>Update the base deployment file</p>
+<p>Set up Virtual Private Cloud and Filestore</p>
+<p>Update the cluster deployment file</p>
+<p>Build the custom OS image</p>
+<p>Make additional updates</p>
+<p>Provision the Slurm cluster</p>
+<p>Connect to the A3 Mega Slurm cluster</p>
+</section>
+<section id="enable-gpudirect-tcpxo-optimized-nccl-communication">
+<h2>Enable GPUDirect-TCPXO optimized NCCL communication<a class="headerlink" href="#enable-gpudirect-tcpxo-optimized-nccl-communication" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">As</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">cluster</span> <span class="n">deployment</span> <span class="n">process</span><span class="p">,</span> <span class="n">a</span> <span class="n">Slurm</span> <span class="n">prolog</span> <span class="ow">and</span> <span class="n">epilog</span> <span class="n">are</span> <span class="n">installed</span> <span class="n">which</span> <span class="n">handles</span> <span class="n">automatic</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">both</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">libnccl</span><span class="o">-</span><span class="n">net</span><span class="o">.</span><span class="n">so</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">running</span> <span class="n">of</span> <span class="n">a</span> <span class="n">sidecar</span> <span class="n">process</span> <span class="n">that</span> <span class="n">enables</span> <span class="n">GPUDirect</span><span class="o">-</span><span class="n">TCPXO</span> <span class="n">optimized</span> <span class="n">communication</span><span class="o">.</span>
+
+<span class="n">To</span> <span class="n">run</span> <span class="nb">any</span> <span class="n">job</span> <span class="n">run</span> <span class="n">on</span> <span class="n">an</span> <span class="n">A3</span> <span class="n">Mega</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">several</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">must</span> <span class="n">be</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">enable</span> <span class="n">high</span> <span class="n">performance</span> <span class="n">networking</span> <span class="k">with</span> <span class="n">GPUDirect</span><span class="o">-</span><span class="n">TCPXO</span><span class="o">.</span> <span class="n">Because</span> <span class="n">we</span> <span class="n">use</span> <span class="n">enroot</span> <span class="n">containers</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">procedure</span> <span class="n">to</span> <span class="n">launch</span> <span class="n">workloads</span><span class="p">,</span> <span class="n">these</span> <span class="n">variables</span> <span class="n">must</span> <span class="n">be</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">container</span> <span class="n">environment</span> <span class="k">as</span> <span class="n">opposed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">host</span> <span class="n">environm</span>
+
+</pre></div>
+</div>
+<p><a class="reference external" href="https://cloud.google.com/cluster-toolkit/docs/machine-learning/a3-mega-enable-gpudirect-tcpxo#connect_to_the_a3_mega_slurm_cluster">Connect to the A3 Mega Slurm cluster</a></p>
+<section id="create-an-enroot-container">
+<h3><a class="reference external" href="https://cloud.google.com/cluster-toolkit/docs/machine-learning/a3-mega-enable-gpudirect-tcpxo#create_an_enroot_container">Create an enroot container</a><a class="headerlink" href="#create-an-enroot-container" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>thekim_google_com@a3m123-controller:~$<span class="w"> </span>srun<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>enroot<span class="w"> </span>import<span class="w"> </span>docker://nvcr.io#nvidia/pytorch:24.04-py3
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Querying<span class="w"> </span>registry<span class="w"> </span><span class="k">for</span><span class="w"> </span>permission<span class="w"> </span>grant
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Authenticating<span class="w"> </span>with<span class="w"> </span>user:<span class="w"> </span>&lt;anonymous&gt;
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Authentication<span class="w"> </span>succeeded
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Fetching<span class="w"> </span>image<span class="w"> </span>manifest<span class="w"> </span>list
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Fetching<span class="w"> </span>image<span class="w"> </span>manifest
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Downloading<span class="w"> </span><span class="m">52</span><span class="w"> </span>missing<span class="w"> </span>layers...
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Extracting<span class="w"> </span>image<span class="w"> </span>layers...
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Converting<span class="w"> </span>whiteouts...
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span>squashfs<span class="w"> </span>filesystem...
+Parallel<span class="w"> </span>mksquashfs:<span class="w"> </span>Using<span class="w"> </span><span class="m">208</span><span class="w"> </span>processors
+Creating<span class="w"> </span><span class="m">4</span>.0<span class="w"> </span>filesystem<span class="w"> </span>on<span class="w"> </span>/home/thekim_google_com/nvidia+pytorch+24.04-py3.sqsh,<span class="w"> </span>block<span class="w"> </span>size<span class="w"> </span><span class="m">131072</span>.
+
+Exportable<span class="w"> </span>Squashfs<span class="w"> </span><span class="m">4</span>.0<span class="w"> </span>filesystem,<span class="w"> </span>lzo<span class="w"> </span>compressed,<span class="w"> </span>data<span class="w"> </span>block<span class="w"> </span>size<span class="w"> </span><span class="m">131072</span>
+<span class="w">        </span>uncompressed<span class="w"> </span>data,<span class="w"> </span>compressed<span class="w"> </span>metadata,<span class="w"> </span>compressed<span class="w"> </span>fragments,
+<span class="w">        </span>compressed<span class="w"> </span>xattrs,<span class="w"> </span>compressed<span class="w"> </span>ids
+<span class="w">        </span>duplicates<span class="w"> </span>are<span class="w"> </span>removed
+Filesystem<span class="w"> </span>size<span class="w"> </span><span class="m">17132710</span>.44<span class="w"> </span>Kbytes<span class="w"> </span><span class="o">(</span><span class="m">16731</span>.16<span class="w"> </span>Mbytes<span class="o">)</span>
+<span class="w">        </span><span class="m">89</span>.05%<span class="w"> </span>of<span class="w"> </span>uncompressed<span class="w"> </span>filesystem<span class="w"> </span>size<span class="w"> </span><span class="o">(</span><span class="m">19240183</span>.19<span class="w"> </span>Kbytes<span class="o">)</span>
+Inode<span class="w"> </span>table<span class="w"> </span>size<span class="w"> </span><span class="m">4118931</span><span class="w"> </span>bytes<span class="w"> </span><span class="o">(</span><span class="m">4022</span>.39<span class="w"> </span>Kbytes<span class="o">)</span>
+<span class="w">        </span><span class="m">34</span>.33%<span class="w"> </span>of<span class="w"> </span>uncompressed<span class="w"> </span>inode<span class="w"> </span>table<span class="w"> </span>size<span class="w"> </span><span class="o">(</span><span class="m">11998157</span><span class="w"> </span>bytes<span class="o">)</span>
+Directory<span class="w"> </span>table<span class="w"> </span>size<span class="w"> </span><span class="m">4522472</span><span class="w"> </span>bytes<span class="w"> </span><span class="o">(</span><span class="m">4416</span>.48<span class="w"> </span>Kbytes<span class="o">)</span>
+<span class="w">        </span><span class="m">39</span>.49%<span class="w"> </span>of<span class="w"> </span>uncompressed<span class="w"> </span>directory<span class="w"> </span>table<span class="w"> </span>size<span class="w"> </span><span class="o">(</span><span class="m">11451210</span><span class="w"> </span>bytes<span class="o">)</span>
+Number<span class="w"> </span>of<span class="w"> </span>duplicate<span class="w"> </span>files<span class="w"> </span>found<span class="w"> </span><span class="m">53409</span>
+Number<span class="w"> </span>of<span class="w"> </span>inodes<span class="w"> </span><span class="m">354645</span>
+Number<span class="w"> </span>of<span class="w"> </span>files<span class="w"> </span><span class="m">319555</span>
+Number<span class="w"> </span>of<span class="w"> </span>fragments<span class="w"> </span><span class="m">17285</span>
+Number<span class="w"> </span>of<span class="w"> </span>symbolic<span class="w"> </span>links<span class="w"> </span><span class="m">1684</span>
+Number<span class="w"> </span>of<span class="w"> </span>device<span class="w"> </span>nodes<span class="w"> </span><span class="m">0</span>
+Number<span class="w"> </span>of<span class="w"> </span>fifo<span class="w"> </span>nodes<span class="w"> </span><span class="m">0</span>
+Number<span class="w"> </span>of<span class="w"> </span>socket<span class="w"> </span>nodes<span class="w"> </span><span class="m">0</span>
+Number<span class="w"> </span>of<span class="w"> </span>directories<span class="w"> </span><span class="m">33406</span>
+Number<span class="w"> </span>of<span class="w"> </span>hard-links<span class="w"> </span><span class="m">123</span>
+Number<span class="w"> </span>of<span class="w"> </span>ids<span class="w"> </span><span class="o">(</span>unique<span class="w"> </span>uids<span class="w"> </span>+<span class="w"> </span>gids<span class="o">)</span><span class="w"> </span><span class="m">1</span>
+Number<span class="w"> </span>of<span class="w"> </span>uids<span class="w"> </span><span class="m">1</span>
+<span class="w">        </span>root<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span>
+Number<span class="w"> </span>of<span class="w"> </span>gids<span class="w"> </span><span class="m">1</span>
+<span class="w">        </span>root<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span>
+thekim_google_com@a3m123-controller:~$
+</pre></div>
+</div>
+<p>This runs on one of your a3-megagpu-8g nodes that has more CPU and memory than the login node, which enroot can use to more quickly import the container. When the import completes, you should have a file named nvidia+pytorch+24.04-py3.sqsh in the directory where you ran the command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>...<span class="w"> </span>nvidia+pytorch+24.04-py3.sqsh<span class="w">  </span>...
+$
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -455,20 +569,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../_I/3_0-connecting_to_a_vm_via_ssh.html"
+       href="6_3-run_a_job_on_the_hpc_cluster.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3. Connecting to a VM via SSH</p>
+        <p class="prev-next-title">6.3. Run a job on the HPC cluster</p>
       </div>
     </a>
     <a class="right-next"
-       href="5_0-slurm_essentials_for_cluster_toolkit_and_vertex_ai_infinipod.html"
+       href="6_5-run_nccl_test.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">5. Slurm Essentials for Cluster Toolkit and Vertex AI Infinipod</p>
+        <p class="prev-next-title">6.5. Run NCCL test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -478,6 +592,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-mega-slurm-cluster-overview">A3 Mega Slurm cluster overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-a3-mega-slurm-cluster-for-ml-training">Deploy an A3 Mega Slurm cluster for ML training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-gpudirect-tcpxo-optimized-nccl-communication">Enable GPUDirect-TCPXO optimized NCCL communication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-enroot-container">Create an enroot container</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

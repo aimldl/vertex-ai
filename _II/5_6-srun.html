@@ -208,12 +208,16 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="6_0-cluster_toolkit.html">6. Google Cluster Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="6_1-getting_started_with_cluster_toolkit.html">6.1. Getting Started with Cluster Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_2-deploy_the_hpc_cluster_using_terraform.html">Deploy the HPC cluster using Terraform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_3-run_a_job_on_the_hpc_cluster.html">6.3. Run a job on the HPC cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_4-deploy_ai_ml_workloads.html">6.4. Deploy AI/ML Workloads on A3 Mega Slurm Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_5-run_nccl_test.html">6.5. Run NCCL test</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Simple Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Serving LLMs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-simple_examples.html">4. Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_III/4_0-serving_llms.html">4. Serving LLMs</a></li>
 </ul>
 
     </div>
@@ -417,6 +421,29 @@ document.write(`
 <li><p>Created: 2024-05-15 (Wed)</p></li>
 <li><p>Updated: 2025-02-10 (Mon)</p></li>
 </ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>srun<span class="w"> </span>-N<span class="w"> </span><span class="m">3</span><span class="w"> </span>hostname
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>squeue
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+<span class="w">              </span><span class="m">1785</span><span class="w">    </span>a3mega<span class="w"> </span>hostname<span class="w"> </span>thekim_g<span class="w">  </span>R<span class="w">       </span><span class="m">0</span>:08<span class="w">      </span><span class="m">3</span><span class="w"> </span>a3m123-a3meganodeset-<span class="o">[</span><span class="m">1</span>,14-15<span class="o">]</span>
+$
+</pre></div>
+</div>
+<p>In several seconds,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>srun<span class="w"> </span>-N<span class="w"> </span><span class="m">3</span><span class="w"> </span>hostname
+a3m123-a3meganodeset-1
+a3m123-a3meganodeset-14
+a3m123-a3meganodeset-15
+<span class="nv">$s</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

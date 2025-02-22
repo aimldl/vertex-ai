@@ -1,6 +1,9 @@
-# 5.6. srun
+# 6.3. Run a job on the HPC cluster
 * Created: 2024-05-15 (Wed)
-* Updated: 2025-02-10 (Mon)
+* Updated: 2025-02-11 (Tue)
+
+
+[Run a job on the HPC cluster](https://cloud.google.com/cluster-toolkit/docs/quickstarts/slurm-cluster#run_a_job_on_the_hpc_cluster)
 
 ```bash
 $ srun -N 3 hostname
@@ -19,14 +22,6 @@ $ srun -N 3 hostname
 a3m123-a3meganodeset-1
 a3m123-a3meganodeset-14
 a3m123-a3meganodeset-15
-$s
-```
-
-```bash
-
-```
-
-```bash
-
+$
 ```
 
